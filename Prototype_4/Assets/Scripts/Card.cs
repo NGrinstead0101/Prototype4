@@ -5,23 +5,23 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     //corperation type
-    public int corpType;
+    public int corp;
     //part type
-    public int partType;
+    public int type;
     //mouse position
     Vector2 mousePos;
 
     //overload constructor
     public Card(int c, int p, Sprite s)
     {
-        CorpType = c;
-        PartType = p;
+        Corp = c;
+        Type = p;
         GetComponent<SpriteRenderer>().sprite = s;
     }
     //getter and setter for corp
-    public int PartType { get => partType; set => partType = value; }
+    public int Type { get => type; set => type = value; }
     //getter and setter for part
-    public int CorpType { get => corpType; set => corpType = value; }
+    public int Corp { get => corp; set => corp = value; }
 
 
     //drag for movement

@@ -10,7 +10,7 @@ public class Part : MonoBehaviour
     public int sleeves;
     //corp and part of sleve's card
     int returnedCorp;
-    int returnedPart;
+    int returnedType;
     public GameObject sleeve;
     public GameObject[] sleeveList;
     public Vector2[] vectorList;
@@ -50,9 +50,7 @@ public class Part : MonoBehaviour
             {
                 break;
             }
-            //set spawn
-            //first sleeve
-            
+            //spawn
             Instantiate(sleeve, vectorList[i - 1], Quaternion.identity);
             
         }

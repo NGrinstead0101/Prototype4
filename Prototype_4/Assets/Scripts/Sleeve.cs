@@ -9,11 +9,11 @@ public class Sleeve : MonoBehaviour
     bool filled;
     //check card's corp and part
     int cardCorp;
-    int cardPart;
+    int cardType;
 
     //geter and setter for card's corp and part
     public int CardCorp { get => cardCorp; set => cardCorp = value; }
-    public int CardPart { get => cardPart; set => cardPart = value; }
+    public int CardType { get => cardType; set => cardType = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +36,10 @@ public class Sleeve : MonoBehaviour
             //filled is true
             filled = true;
             Debug.Log("Filled: " + filled);
-            cardCorp = collision.GetComponent<Card>().CorpType;
-            cardPart = collision.GetComponent<Card>().PartType;
+            cardCorp = collision.GetComponent<Card>().Corp;
+            cardType = collision.GetComponent<Card>().Type;
             Debug.Log("Card's corp is: " + cardCorp);
-            Debug.Log("Card's part is: " + cardPart);
+            Debug.Log("Card's type is: " + cardType);
         }
        
     }
