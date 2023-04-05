@@ -13,6 +13,7 @@ public class Part : MonoBehaviour
     int returnedPart;
     public GameObject sleeve;
     public GameObject[] sleeveList;
+    public Vector2[] vectorList;
 
     //constructor
     public Part(Sprite s, int sl)
@@ -23,6 +24,12 @@ public class Part : MonoBehaviour
 
     private void Start()
     {
+        //set vector array
+        vectorList = new Vector2[4];
+        vectorList[0] = new Vector2(transform.position.x, transform.position.y + 3);
+        vectorList[1] = new Vector2(transform.position.x + 3, transform.position.y);
+        vectorList[2] = new Vector2(transform.position.x, transform.position.y - 3);
+        vectorList[3] = new Vector2(transform.position.x - 3, transform.position.y);
         spawnSleeve(sleeves);
     }
 
@@ -35,8 +42,7 @@ public class Part : MonoBehaviour
     //spawn sleeves
     public void spawnSleeve(int spawn)
     {
-        //spawn vector
-        Vector2 spawnPos;
+       
         for (int i = 1; i <= spawn; i++)
         {
             //break so it only spawns a max of 4
@@ -45,24 +51,10 @@ public class Part : MonoBehaviour
                 break;
             }
             //set spawn
-            if (i == 1)
-            {
-                spawnPos = new Vector2(transform.position.x, transform.position.y + 3);
-            }
-            else if (i == 2)
-            {
-                spawnPos = new Vector2(transform.position.x + 3, transform.position.y);
-            }
-            else if (i == 3)
-            {
-                spawnPos = new Vector2(transform.position.x, transform.position.y - 3);
-            }
-            else
-            {
-                spawnPos = new Vector2(transform.position.x - 3, transform.position.y);
-            }
-            //spawn sleeve object
-            Instantiate(sleeve, spawnPos, Quaternion.identity);
+            //first sleeve
+            
+            Instantiate(sleeve, vectorList[i - 1], Quaternion.identity);
+            
         }
     }
 }
