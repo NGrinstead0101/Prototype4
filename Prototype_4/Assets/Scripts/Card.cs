@@ -15,12 +15,13 @@ public class Card : MonoBehaviour
     //getter and setter for part
     public int CorpType { get => corpType; set => corpType = value; }
 
-    //overload constructor
-    public Card(int c, int p, Sprite s)
+    //"constructor"
+    public void CreateCard(int c, int p, Sprite s, Sprite part)
     {
         CorpType = c;
         PartType = p;
         GetComponent<SpriteRenderer>().sprite = s;
+        // May need more sprite variables + references to child objects
     }
 
     //drag for movement
