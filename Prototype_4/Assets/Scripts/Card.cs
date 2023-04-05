@@ -5,15 +5,11 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     //corperation type
-    private int corpType;
+    public int corpType;
     //part type
-    private int partType;
+    public int partType;
     //mouse position
     Vector2 mousePos;
-    //getter and setter for corp
-    public int PartType { get => partType; set => partType = value; }
-    //getter and setter for part
-    public int CorpType { get => corpType; set => corpType = value; }
 
     //overload constructor
     public Card(int c, int p, Sprite s)
@@ -22,12 +18,19 @@ public class Card : MonoBehaviour
         PartType = p;
         GetComponent<SpriteRenderer>().sprite = s;
     }
+    //getter and setter for corp
+    public int PartType { get => partType; set => partType = value; }
+    //getter and setter for part
+    public int CorpType { get => corpType; set => corpType = value; }
+
 
     //drag for movement
     private void OnMouseDrag()
     {
         //update position
-        transform.position = mousePos; 
+        transform.position = mousePos;
+        //update drag
+       
     }
 
     //update for various functions
@@ -35,6 +38,16 @@ public class Card : MonoBehaviour
     {
         //update mouse position
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if mousse is down and coliding with sleeve
+        if (Input.GetMouseButton(0) == false && collision.tag.Contains("Sleeve"))
+        {
+            //card position becomes sleeve position
+            transform.position = collision.transform.position;
+        }
     }
 
 }
