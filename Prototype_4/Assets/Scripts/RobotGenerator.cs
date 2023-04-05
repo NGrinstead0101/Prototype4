@@ -18,10 +18,14 @@ public class RobotGenerator : MonoBehaviour
 
     List<Robot> generatedRobots = new List<Robot>();
 
+    /// <summary>
+    /// Generates a number of robots before gicing all of them to GameStateManager
+    /// </summary>
     public void GenerateRobots()
     {
         generatedRobots.Clear();
 
+        // Creating the minimum number for each corporation
         for (int i = 0; i < 3; ++i)
         {
             corpTallies[i] = 0;
@@ -35,16 +39,28 @@ public class RobotGenerator : MonoBehaviour
 
         int randCorp;
 
+        // Generating the rest of the robots
         while (generatedRobots.Count < targetRobotCount)
         {
             randCorp = Random.Range(0, 3);
-            ++corpTallies[randCorp];
-            generatedRobots.Insert(GetRandIndex(), GenerationHelper(randCorp));
+
+            if (corpTallies[randCorp] < corpCountMax)
+            {
+                ++corpTallies[randCorp];
+                generatedRobots.Insert(GetRandIndex(), GenerationHelper(randCorp));
+            }
         }
+
+        // make check for displaying PA announcements?
 
         gameStateTracker.AddRobots(generatedRobots);
     }
 
+    /// <summary>
+    /// Creates a robot once the suit has been determined
+    /// </summary>
+    /// <param name="suit">The chosen corporation</param>
+    /// <returns>A completed Robot</returns>
     private Robot GenerationHelper(int suit)
     {
         //Part newPart = partGenerator.GeneratePart();
@@ -55,6 +71,10 @@ public class RobotGenerator : MonoBehaviour
         return new Robot(suit, /*newPart, */robotSprite, hasSecurity, dialogue);
     }
 
+    /// <summary>
+    /// Finds a random spot in generatedRobots list
+    /// </summary>
+    /// <returns></returns>
     private int GetRandIndex()
     {
         return Random.Range(0, generatedRobots.Count);
