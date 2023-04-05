@@ -30,6 +30,10 @@ public class Sleeve : MonoBehaviour
             filled = true;
             Debug.Log("Filled: " + filled);
         }
+        int cardCorp = collision.GetComponent<Card>().CorpType;
+        int cardPart = collision.GetComponent<Card>().PartType;
+        Debug.Log("Card's corp is: " + cardCorp);
+        Debug.Log("Card's part is: " + cardPart);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

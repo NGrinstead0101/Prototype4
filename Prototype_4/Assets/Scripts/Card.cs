@@ -29,8 +29,7 @@ public class Card : MonoBehaviour
     {
         //update position
         transform.position = mousePos;
-        //update drag
-       
+        
     }
 
     //update for various functions
