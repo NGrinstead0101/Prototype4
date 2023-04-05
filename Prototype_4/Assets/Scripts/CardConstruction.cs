@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardConstruction : MonoBehaviour
 {
     Sprite[] corpSprites;
-    Sprite[] partSprites;
+    Sprite[] typeSprites;
 
     [SerializeField] GameObject baseCardPrefab;
     Card currentCard;
@@ -13,23 +13,18 @@ public class CardConstruction : MonoBehaviour
     // could maybe have script that remembers what cards you have
     //[SerializeField] CardTracker cardTracker;
 
-    // rows are cards columns are corp, part, and bonus
-    int[][] baseCardSet;
-
     public void GenerateBaseCards()
     {
-        // instantiates card for each row in baseCardSet
         GameObject temp;
 
-        for (int i = 0; i < baseCardSet.Length; ++i)
+        for (int i = 0; i < 5; ++i)
         {
-            temp = Instantiate(baseCardPrefab);
-            // pass card tracker the new card
-
-            currentCard = temp.GetComponent<Card>();
-            int corp = baseCardSet[i][0];
-            int part = baseCardSet[i][1];
-            currentCard.CreateCard(corp, part, corpSprites[corp], partSprites[part]);
+            for (int j = 0; j < 5; ++i)
+            {
+                temp = Instantiate(baseCardPrefab);
+                currentCard = temp.GetComponent<Card>();
+                currentCard.CreateCard(i, j, corpSprites[i], typeSprites[j]);
+            }
         }
     }
 
@@ -39,16 +34,16 @@ public class CardConstruction : MonoBehaviour
         // pass card tracker the new card
         
         currentCard = temp.GetComponent<Card>();
-        int randPart = Random.Range(0, 4);
-        currentCard.CreateCard(chosenSuit, randPart, corpSprites[chosenSuit], partSprites[randPart]);
+        int randType = Random.Range(0, 4);
+        currentCard.CreateCard(chosenSuit, randType, corpSprites[chosenSuit], typeSprites[randType]);
     }
 
-    public void CreateCardWithPart(int chosenSuit, int chosenPart)
+    public void CreateCardWithPart(int chosenSuit, int chosenType)
     {
         GameObject temp = Instantiate(baseCardPrefab);
         // pass card tracker the new card
 
         currentCard = temp.GetComponent<Card>();
-        currentCard.CreateCard(chosenSuit, chosenPart, corpSprites[chosenSuit], partSprites[chosenPart]);
+        currentCard.CreateCard(chosenSuit, chosenType, corpSprites[chosenSuit], typeSprites[chosenType]);
     }
 }
