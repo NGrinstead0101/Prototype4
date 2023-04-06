@@ -12,7 +12,7 @@ public class Part : MonoBehaviour
     int returnedCorp;
     int returnedType;
     public GameObject sleeve;
-    public GameObject[] sleeveList;
+    public List<GameObject> sleeveList = new List<GameObject>();
     public Vector2[] vectorList;
 
     //constructor
@@ -51,7 +51,7 @@ public class Part : MonoBehaviour
                 break;
             }
             //spawn
-            Instantiate(sleeve, vectorList[i - 1], Quaternion.identity);
+            sleeveList.Add(Instantiate(sleeve, vectorList[i - 1], Quaternion.identity));
             
         }
     }
