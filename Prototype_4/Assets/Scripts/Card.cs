@@ -11,12 +11,13 @@ public class Card : MonoBehaviour
     //mouse position
     Vector2 mousePos;
 
-    //overload constructor
-    public Card(int c, int p, Sprite s)
+    //"constructor"
+    public void CreateCard(int c, int p, Sprite s, Sprite part)
     {
         Corp = c;
         Type = p;
         GetComponent<SpriteRenderer>().sprite = s;
+        // May need more sprite variables + references to child objects
     }
     //getter and setter for corp
     public int Type { get => type; set => type = value; }
