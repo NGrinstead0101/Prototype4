@@ -19,6 +19,17 @@ public class RobotGenerator : MonoBehaviour
     List<Robot> generatedRobots = new List<Robot>();
 
     /// <summary>
+    /// Prevents infinite loop and ensures enough robots can be generated
+    /// </summary>
+    private void Awake()
+    {
+        while (corpCountMax * 3 < targetRobotCount)
+        {
+            corpCountMax++;
+        }
+    }
+
+    /// <summary>
     /// Generates a number of robots before gicing all of them to GameStateManager
     /// </summary>
     public void GenerateRobots()

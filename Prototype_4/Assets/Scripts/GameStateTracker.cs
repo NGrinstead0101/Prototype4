@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameStateTracker : MonoBehaviour
 {
     Queue<Robot> robotQueue = new Queue<Robot>();
     [SerializeField] RobotGenerator robotGenerator;
 
-    enum GameState { revealRobot, revealPart, repairRobot, revealResults, buyingCards, waiting };
+    enum GameState { revealRobot, waitingOnRepairs, checkRepairs, buyingCards, waitingOnBuying };
     GameState currentGameState;
+
+    [SerializeField] TextMeshProUGUI dialogueBox;
+
+    [SerializeField] GameObject storeInterface;
+    // variable referencing PA message (probably other class?)
 
     /// <summary>
     /// Creates robots for first day
@@ -27,27 +33,36 @@ public class GameStateTracker : MonoBehaviour
         switch (currentGameState)
         {
             case GameState.revealRobot:
+                Debug.Log("Revealing robots");
+                currentGameState = GameState.waitingOnRepairs;
+                //HideStore();
                 ShowNextRobot();
                 break;
 
-            case GameState.revealPart:
-
-                break;
-
-            case GameState.repairRobot:
-
-                break;
-
-            case GameState.revealResults:
-
+            case GameState.checkRepairs:
+                Debug.Log("Checking repairs");
+                // check for success and reveal results
+                // change state to reveal if robots remain, otherwise go to buying
+                if (robotQueue.Count > 0)
+                {
+                    currentGameState = GameState.revealRobot;
+                }
+                else
+                {
+                    currentGameState = GameState.buyingCards;
+                }
                 break;
 
             case GameState.buyingCards:
-
+                Debug.Log("Moving to buying phase");
+                currentGameState = GameState.waitingOnBuying;
+                robotGenerator.GenerateRobots();
+                // show PA message
+                //ShowStore();
                 break;
 
             default:
-
+                Debug.Log("Waiting...");
                 break;
         }
     }
@@ -58,8 +73,11 @@ public class GameStateTracker : MonoBehaviour
     /// <param name="robotList"></param>
     public void AddRobots(List<Robot> robotList)
     {
+        robotQueue.Clear();
+
         foreach (Robot robot in robotList)
         {
+            Debug.Log("Corp: " + robot.Corp + "  Has Security: " + robot.HasSecurity + "  Dialogue: " + robot.Dialogue);
             robotQueue.Enqueue(robot);
         }
     }
@@ -69,11 +87,33 @@ public class GameStateTracker : MonoBehaviour
     /// </summary>
     private void ShowNextRobot()
     {
-        if (robotQueue.Count != 0)
-        {
-            Robot currentRobot = robotQueue.Dequeue();
-        }
+        Robot currentRobot = robotQueue.Dequeue();
 
-        // show dialogue + part
+        dialogueBox.text = currentRobot.Dialogue;
+
+        // reveal part
+    }
+
+    private void ShowStore()
+    {
+        storeInterface.SetActive(true);
+    }
+
+    private void HideStore()
+    {
+        storeInterface.SetActive(false);
+    }
+
+    public void StopWaiting()
+    {
+        // moves to next phase based on which type of waiting is happening
+        if (currentGameState == GameState.waitingOnRepairs)  
+        {
+            currentGameState = GameState.checkRepairs;
+        }
+        else if (currentGameState == GameState.waitingOnBuying)
+        {
+            currentGameState = GameState.revealRobot;
+        }
     }
 }
