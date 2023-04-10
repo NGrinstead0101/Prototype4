@@ -6,17 +6,16 @@ using TMPro;
 public class Robot : MonoBehaviour
 {
     int corp;
-    //Part part;
+    GameObject part;
     Sprite robotSprite;
     bool hasSecurity;
     string dialogue;
 
-    public Robot(int corp, /*Part part,*/ Sprite sprite, bool hasSecurity, string dialogue)
+    public Robot(int corp, GameObject part, Sprite sprite, bool hasSecurity, string dialogue)
     {
         this.Corp = corp;
-        //this.part = part;
-        robotSprite = sprite;
-        // set sprite here
+        this.Part = part;
+        RobotSprite = sprite;
         this.HasSecurity = hasSecurity;
         this.Dialogue = dialogue;
     }
@@ -24,4 +23,6 @@ public class Robot : MonoBehaviour
     public int Corp { get => corp; set => corp = value; }
     public bool HasSecurity { get => hasSecurity; set => hasSecurity = value; }
     public string Dialogue { get => dialogue; set => dialogue = value; }
+    public Sprite RobotSprite { get => robotSprite; set => robotSprite = value; }
+    public GameObject Part { get => part; set => part = value; }
 }
