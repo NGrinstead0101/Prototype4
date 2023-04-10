@@ -20,6 +20,8 @@ public class RevealingRobots : State
         // reveal part
 
         // update robot sprite
+        context.robotSprite.enabled = true;
+        context.robotSprite.sprite = currentRobot.RobotSprite;
 
         context.Invoke("GetContinueInput", 2f);
     }
