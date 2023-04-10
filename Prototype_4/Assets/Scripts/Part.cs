@@ -16,7 +16,7 @@ public class Part : MonoBehaviour
     public Vector2[] vectorList;
 
     //constructor
-    public Part(Sprite s, int sl)
+    public void setPart(Sprite s, int sl)
     {
         sprite = s;
         sleeves = sl;
