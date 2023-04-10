@@ -12,6 +12,7 @@ public class GameStateTracker : MonoBehaviour
     public GameObject confirmButton;
     public TextMeshProUGUI dialogueBox;
     public GameObject storeInterface;
+    public Image robotSprite;
     // variable referencing PA message (probably other class?)
 
     public static State revealingRobots;
