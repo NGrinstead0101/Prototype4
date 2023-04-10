@@ -17,6 +17,7 @@ public class RepairingRobot : State
 
         // reveal success meter
         // reveal part + cards?
+        context.currentPart.SetActive(true);
     }
 
     public void ChangeState()
@@ -27,6 +28,7 @@ public class RepairingRobot : State
         context.confirmButton.SetActive(false);
         context.dialogueBox.text = "";
         context.robotSprite.enabled = false;
+        GameObject.Destroy(context.currentPart);
 
         if (context.robotQueue.Count > 0)
         {
@@ -41,4 +43,6 @@ public class RepairingRobot : State
 
         context.ShowInfo();
     }
+
+   
 }

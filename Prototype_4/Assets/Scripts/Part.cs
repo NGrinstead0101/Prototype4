@@ -56,4 +56,14 @@ public class Part : MonoBehaviour
             
         }
     }
+    
+
+    public void OnDestroy()
+    {
+        //when destroyed, remove all sleeves
+        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        {
+            GameObject.Destroy(sleeveList[i]);
+        }
+    }
 }
