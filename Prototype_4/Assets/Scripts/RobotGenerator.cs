@@ -74,7 +74,7 @@ public class RobotGenerator : MonoBehaviour
     /// <returns>A completed Robot</returns>
     private Robot GenerationHelper(int suit)
     {
-        //Part newPart = partGenerator.GeneratePart();
+        //Part newPart = GeneratePart();
         Sprite robotSprite = robotSpriteList[Random.Range(0, robotSpriteList.Count)];
         bool hasSecurity = Random.Range(0, 10) == 0;
         string dialogue = dialogueList[Random.Range(0, dialogueList.Count)];
