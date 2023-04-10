@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Part : MonoBehaviour
 {
-    //Sprite for part
-    Sprite sprite;
+    
     //card slots
     public int sleeves;
     //corp and part of sleeve's card
@@ -19,8 +18,9 @@ public class Part : MonoBehaviour
     public void setPart(Sprite s, int sl)
     {
         Debug.Log("Sleeve count: " + sl);
-        sprite = s;
+        
         sleeves = sl;
+        GetComponent<SpriteRenderer>().sprite = s;
     }
 
     private void Start()
