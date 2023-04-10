@@ -10,6 +10,8 @@ public class Card : MonoBehaviour
     public int type;
     //mouse position
     Vector2 mousePos;
+
+    [SerializeField] float handExitThreshold;
     bool isZoomed = false;
     bool isInHand = true;
     bool canUnzoom = false;
@@ -33,7 +35,11 @@ public class Card : MonoBehaviour
     {
         //update position
         transform.position = mousePos;
-        
+
+        if (transform.position.y >= handExitThreshold)
+        {
+            isInHand = false;
+        }
     }
 
     private void OnMouseOver()
