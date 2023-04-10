@@ -1025,8 +1025,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateTracker: {fileID: 2139888131}
   robotSpriteList:
-  - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  - {fileID: 21300000, guid: f04ff567ace006747b50a7ff9dc02f89, type: 3}
+  - {fileID: 21300000, guid: 754bf625bf0dd754594382a3a74dc411, type: 3}
+  - {fileID: 21300000, guid: 8894b4ef1323a2d4aacaa1b3b79b3b93, type: 3}
   dialogueList:
   - Option 1
   - Option 2
