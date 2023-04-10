@@ -8,7 +8,8 @@ public class RobotGenerator : MonoBehaviour
 
     [SerializeField] List<Sprite> robotSpriteList;
     [SerializeField] List<string> dialogueList;
-    //[SerializeField] PartGenerator partGenerator;
+    [SerializeField] List<Sprite> partSpriteList;
+    [SerializeField] GameObject partPrefab;
 
     [SerializeField] int corpCountMin;
     [SerializeField] int corpCountMax;
@@ -74,12 +75,17 @@ public class RobotGenerator : MonoBehaviour
     /// <returns>A completed Robot</returns>
     private Robot GenerationHelper(int suit)
     {
-        //Part newPart = GeneratePart();
+        GameObject newPart = Instantiate(partPrefab);
+        Part temp = partPrefab.GetComponent<Part>();
+        newPart.SetActive(false);
+        int sleeveNum = Random.Range(2, 5);
+        Sprite partSprite = partSpriteList[Random.Range(0, partSpriteList.Count)];
+        temp.setPart(partSprite, sleeveNum);
         Sprite robotSprite = robotSpriteList[Random.Range(0, robotSpriteList.Count)];
         bool hasSecurity = Random.Range(0, 10) == 0;
         string dialogue = dialogueList[Random.Range(0, dialogueList.Count)];
 
-        return new Robot(suit, /*newPart, */robotSprite, hasSecurity, dialogue);
+        return new Robot(suit, newPart, robotSprite, hasSecurity, dialogue);
     }
 
     /// <summary>

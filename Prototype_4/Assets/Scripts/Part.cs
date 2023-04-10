@@ -8,7 +8,7 @@ public class Part : MonoBehaviour
     Sprite sprite;
     //card slots
     public int sleeves;
-    //corp and part of sleve's card
+    //corp and part of sleeve's card
     int returnedCorp;
     int returnedType;
     public GameObject sleeve;
@@ -18,6 +18,7 @@ public class Part : MonoBehaviour
     //constructor
     public void setPart(Sprite s, int sl)
     {
+        Debug.Log("Sleeve count: " + sl);
         sprite = s;
         sleeves = sl;
     }
