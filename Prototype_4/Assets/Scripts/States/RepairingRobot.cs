@@ -26,6 +26,7 @@ public class RepairingRobot : State
 
         context.confirmButton.SetActive(false);
         context.dialogueBox.text = "";
+        context.robotSprite.enabled = false;
 
         if (context.robotQueue.Count > 0)
         {
