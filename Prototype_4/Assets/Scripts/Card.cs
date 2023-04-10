@@ -10,6 +10,9 @@ public class Card : MonoBehaviour
     public int type;
     //mouse position
     Vector2 mousePos;
+    bool isZoomed = false;
+    bool isInHand = true;
+    bool canUnzoom = false;
 
     //"constructor"
     public void CreateCard(int c, int p, Sprite s, Sprite part)
@@ -31,6 +34,35 @@ public class Card : MonoBehaviour
         //update position
         transform.position = mousePos;
         
+    }
+
+    private void OnMouseOver()
+    {
+        if (!isZoomed && isInHand)
+        {
+            isZoomed = true;
+            canUnzoom = false;
+            Invoke("ZoomDelay", 0.1f);
+
+            transform.Translate(Vector2.up);
+            transform.localScale *= 1.5f;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (canUnzoom && isZoomed && isInHand)
+        {
+            isZoomed = false;
+
+            transform.Translate(Vector2.down);
+            transform.localScale /= 1.5f;
+        }
+    }
+
+    private void ZoomDelay()
+    {
+        canUnzoom = true;
     }
 
     //update for various functions

@@ -10,11 +10,15 @@ public class CardConstruction : MonoBehaviour
     [SerializeField] GameObject baseCardPrefab;
     Card currentCard;
 
+    List<GameObject> newCards = new List<GameObject>();
+
     // could maybe have script that remembers what cards you have
     //[SerializeField] CardTracker cardTracker;
 
-    public void GenerateBaseCards()
+    public List<GameObject> GenerateBaseCards()
     {
+        newCards.Clear();
+
         GameObject temp;
 
         for (int i = 0; i < 5; ++i)
@@ -22,10 +26,13 @@ public class CardConstruction : MonoBehaviour
             for (int j = 0; j < 5; ++i)
             {
                 temp = Instantiate(baseCardPrefab);
+                newCards.Add(temp);
                 currentCard = temp.GetComponent<Card>();
                 currentCard.CreateCard(i, j, corpSprites[i], typeSprites[j]);
             }
         }
+
+        return newCards;
     }
 
     public void CreateCardWithSuit(int chosenSuit)
