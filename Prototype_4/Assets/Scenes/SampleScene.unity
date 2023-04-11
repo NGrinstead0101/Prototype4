@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -72}
+  m_AnchoredPosition: {x: 229, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51474741
@@ -615,8 +615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.82510376, y: -0.8250885}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 209.7303, y: 55.7303}
+  m_SizeDelta: {x: 233.6075, y: 233.6075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701483396
 MonoBehaviour:
@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 114}
+  m_AnchoredPosition: {x: -196, y: 138}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435047615
@@ -1109,6 +1109,7 @@ MonoBehaviour:
   partSpriteList:
   - {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   partPrefab: {fileID: 893422994841480115, guid: d82175bc8f920b346a0f65f75a495f4e, type: 3}
+  partPosition: {x: -4.5, y: -1}
   corpCountMin: 1
   corpCountMax: 3
   targetRobotCount: 5
