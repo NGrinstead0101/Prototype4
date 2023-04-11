@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -72}
+  m_AnchoredPosition: {x: 229, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51474741
@@ -489,7 +489,7 @@ RectTransform:
   - {fileID: 2074809563}
   - {fileID: 701483395}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -615,8 +615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.82510376, y: -0.8250885}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 209.7303, y: 55.7303}
+  m_SizeDelta: {x: 233.6075, y: 233.6075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701483396
 MonoBehaviour:
@@ -722,8 +722,80 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1278076208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278076209}
+  - component: {fileID: 1278076211}
+  - component: {fileID: 1278076210}
+  m_Layer: 0
+  m_Name: HandTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1278076209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278076208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278076210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278076208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbba420a4cf60d43baa93dfa75ff9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corpSprites:
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  typeSprites:
+  - {fileID: 21300000, guid: 76cb87dfe1f5a8649b22188ca2dce77a, type: 3}
+  - {fileID: 21300000, guid: bd306339e5901594f8faaf4e67ada081, type: 3}
+  - {fileID: 21300000, guid: 6ccb81d7239c93245b1917886fd86433, type: 3}
+  - {fileID: 21300000, guid: 2ba5796d3d0e4ce4da257a5f7ba6af43, type: 3}
+  baseCardPrefab: {fileID: 20278033131514823, guid: c9d48c896d63803459a8e09f28636a42, type: 3}
+--- !u!114 &1278076211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278076208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa66818ccc7c6e04eb30867647d98a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInHand: []
+  leftHandBound: {x: -8, y: -4}
+  spacing: 1
+  cardConstruction: {fileID: 1278076210}
 --- !u!1 &1435047613
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 114}
+  m_AnchoredPosition: {x: -196, y: 138}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435047615
@@ -1037,6 +1109,7 @@ MonoBehaviour:
   partSpriteList:
   - {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   partPrefab: {fileID: 893422994841480115, guid: d82175bc8f920b346a0f65f75a495f4e, type: 3}
+  partPosition: {x: -4.5, y: -1}
   corpCountMin: 1
   corpCountMax: 3
   targetRobotCount: 5
@@ -1121,6 +1194,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1435047615}
   storeInterface: {fileID: 2074809562}
   robotSprite: {fileID: 701483396}
+  currentPart: {fileID: 0}
 --- !u!4 &2139888132
 Transform:
   m_ObjectHideFlags: 0

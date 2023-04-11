@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class CardConstruction : MonoBehaviour
 {
-    Sprite[] corpSprites;
-    Sprite[] typeSprites;
+    [SerializeField] Sprite[] corpSprites;
+    [SerializeField] Sprite[] typeSprites;
 
     [SerializeField] GameObject baseCardPrefab;
     Card currentCard;
 
+    List<GameObject> newCards = new List<GameObject>();
+
     // could maybe have script that remembers what cards you have
     //[SerializeField] CardTracker cardTracker;
 
-    public void GenerateBaseCards()
+    public List<GameObject> GenerateBaseCards()
     {
+        newCards.Clear();
+
         GameObject temp;
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < 4; ++i)
         {
-            for (int j = 0; j < 5; ++i)
+            for (int j = 0; j < 4; ++j)
             {
                 temp = Instantiate(baseCardPrefab);
                 currentCard = temp.GetComponent<Card>();
                 currentCard.CreateCard(i, j, corpSprites[i], typeSprites[j]);
+                newCards.Add(temp);
             }
         }
+
+        return newCards;
     }
 
     public void CreateCardWithSuit(int chosenSuit)
