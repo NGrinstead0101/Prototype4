@@ -17,7 +17,8 @@ public class RevealingRobots : State
 
         context.dialogueBox.text = currentRobot.Dialogue;
 
-        // reveal part
+        //get part refference
+        context.currentPart = currentRobot.Part;
 
         // update robot sprite
         context.robotSprite.enabled = true;
