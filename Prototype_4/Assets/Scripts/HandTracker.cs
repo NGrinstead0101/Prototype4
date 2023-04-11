@@ -5,18 +5,31 @@ using UnityEngine;
 public class HandTracker : MonoBehaviour
 {
     public List<GameObject> cardsInHand;
-    [SerializeField] List<Vector2> cardPositions;
+    [SerializeField] Vector2 leftHandBound;
+    [SerializeField] float spacing;
 
     [SerializeField] CardConstruction cardConstruction;
 
     private void Awake()
     {
         cardsInHand = cardConstruction.GenerateBaseCards();
-        for (int i = 0; i < cardsInHand.Count && i < cardPositions.Count; ++i)
-        {
-            cardsInHand[i].transform.position = cardPositions[i];
-        }
+
+        PositionCards();
     }
 
+    private void PositionCards()
+    {
+        if (cardsInHand.Count != 0)
+        {
+            GameObject previousCard;
+            previousCard = cardsInHand[0];
+            cardsInHand[0].transform.position = leftHandBound;
 
+            for (int i = 1; i < cardsInHand.Count; ++i)
+            {
+                cardsInHand[i].transform.position = new Vector2(previousCard.transform.position.x + spacing, previousCard.transform.position.y);
+                previousCard = cardsInHand[i];
+            }
+        }
+    }
 }

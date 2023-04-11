@@ -21,7 +21,7 @@ public class Card : MonoBehaviour
     {
         Corp = c;
         Type = p;
-        GetComponent<SpriteRenderer>().sprite = s;
+        //GetComponent<SpriteRenderer>().sprite = s;
         // May need more sprite variables + references to child objects
     }
     //getter and setter for corp
@@ -42,34 +42,34 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void OnMouseOver()
-    {
-        if (!isZoomed && isInHand)
-        {
-            isZoomed = true;
-            canUnzoom = false;
-            Invoke("ZoomDelay", 0.1f);
+    //private void OnMouseOver()
+    //{
+    //    if (!isZoomed && isInHand)
+    //    {
+    //        isZoomed = true;
+    //        canUnzoom = false;
+    //        Invoke("ZoomDelay", 0.1f);
 
-            transform.Translate(Vector2.up);
-            transform.localScale *= 1.5f;
-        }
-    }
+    //        //transform.Translate(Vector2.up);
+    //        transform.localScale *= 1.5f;
+    //    }
+    //}
 
-    private void OnMouseExit()
-    {
-        if (canUnzoom && isZoomed && isInHand)
-        {
-            isZoomed = false;
+    //private void OnMouseExit()
+    //{
+    //    if (canUnzoom && isZoomed && isInHand)
+    //    {
+    //        isZoomed = false;
 
-            transform.Translate(Vector2.down);
-            transform.localScale /= 1.5f;
-        }
-    }
+    //        //transform.Translate(Vector2.down);
+    //        transform.localScale /= 1.5f;
+    //    }
+    //}
 
-    private void ZoomDelay()
-    {
-        canUnzoom = true;
-    }
+    //private void ZoomDelay()
+    //{
+    //    canUnzoom = true;
+    //}
 
     //update for various functions
     private void Update()

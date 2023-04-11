@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CardConstruction : MonoBehaviour
 {
-    Sprite[] corpSprites;
-    Sprite[] typeSprites;
+    [SerializeField] Sprite[] corpSprites;
+    [SerializeField] Sprite[] typeSprites;
 
     [SerializeField] GameObject baseCardPrefab;
     Card currentCard;
@@ -21,14 +21,14 @@ public class CardConstruction : MonoBehaviour
 
         GameObject temp;
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < 4; ++i)
         {
-            for (int j = 0; j < 5; ++i)
+            for (int j = 0; j < 4; ++j)
             {
                 temp = Instantiate(baseCardPrefab);
-                newCards.Add(temp);
                 currentCard = temp.GetComponent<Card>();
                 currentCard.CreateCard(i, j, corpSprites[i], typeSprites[j]);
+                newCards.Add(temp);
             }
         }
 
