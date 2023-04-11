@@ -35,22 +35,24 @@ public class CardConstruction : MonoBehaviour
         return newCards;
     }
 
-    public void CreateCardWithSuit(int chosenSuit)
+    public GameObject CreateCardWithSuit(int chosenSuit)
     {
         GameObject temp = Instantiate(baseCardPrefab);
-        // pass card tracker the new card
         
         currentCard = temp.GetComponent<Card>();
         int randType = Random.Range(0, 4);
         currentCard.CreateCard(chosenSuit, randType, corpSprites[chosenSuit], typeSprites[randType]);
+
+        return temp;
     }
 
-    public void CreateCardWithPart(int chosenSuit, int chosenType)
+    public GameObject CreateCardWithPart(int chosenSuit, int chosenType)
     {
         GameObject temp = Instantiate(baseCardPrefab);
-        // pass card tracker the new card
 
         currentCard = temp.GetComponent<Card>();
         currentCard.CreateCard(chosenSuit, chosenType, corpSprites[chosenSuit], typeSprites[chosenType]);
+
+        return temp;
     }
 }

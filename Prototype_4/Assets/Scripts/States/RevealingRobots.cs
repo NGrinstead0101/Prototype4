@@ -15,7 +15,23 @@ public class RevealingRobots : State
     {
         Robot currentRobot = context.robotQueue.Dequeue();
 
-        context.dialogueBox.text = currentRobot.Dialogue;
+        string corpName = "";
+        switch (currentRobot.Corp)
+        {
+            case 0:
+                corpName = "Pear Corp.";
+                break;
+
+            case 1:
+                corpName = "Cyborg Inc.";
+                break;
+
+            case 2:
+                corpName = "MEGAplex";
+                break;
+        }
+
+        context.dialogueBox.text = "Hello, I'm a " + corpName + " robot! " + currentRobot.Dialogue;
 
         //get part refference
         context.currentPart = currentRobot.Part;

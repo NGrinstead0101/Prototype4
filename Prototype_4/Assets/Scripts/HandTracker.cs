@@ -32,4 +32,21 @@ public class HandTracker : MonoBehaviour
             }
         }
     }
+
+    public void BuyCard(int suit, int type = -1)
+    {
+        GameObject newCard;
+
+        if (type == -1)
+        {
+            newCard = cardConstruction.CreateCardWithSuit(suit);
+        }
+        else
+        {
+            newCard = cardConstruction.CreateCardWithPart(suit, type);
+        }
+
+        cardsInHand.Add(newCard);
+        PositionCards();
+    }
 }
