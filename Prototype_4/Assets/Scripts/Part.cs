@@ -10,17 +10,20 @@ public class Part : MonoBehaviour
     //corp and part of sleeve's card
     int returnedCorp;
     int returnedType;
+    //corp to assign to sleeve
+    int sleeveCorp;
     public GameObject sleeve;
     public List<GameObject> sleeveList = new List<GameObject>();
     public Vector2[] vectorList;
 
     //constructor
-    public void setPart(Sprite s, int sl)
+    public void setPart(Sprite s, int sl, int robotCorp)
     {
         Debug.Log("Sleeve count: " + sl);
         
         sleeves = sl;
         GetComponent<SpriteRenderer>().sprite = s;
+        sleeveCorp = robotCorp;
     }
 
     private void Start()
@@ -34,10 +37,36 @@ public class Part : MonoBehaviour
         spawnSleeve(sleeves);
     }
 
-    //check card slots
-    public void check()
-    { 
-        
+    //check card corps
+    public int checkCorp()
+    {
+        int matches = 0;
+        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        {
+            if (sleeveList[i].GetComponent<Sleeve>().checkCorp() == true)
+            {
+                matches++;
+            }
+        }
+        return matches;
+    }
+    //check card types
+    public int checkType()
+    {
+        int matches = 0;
+        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        {
+            if (sleeveList[i].GetComponent<Sleeve>().checkType() == true)
+            {
+                matches++;
+            }
+        }
+        return matches;
+    }
+    //check sleeves
+    public int returnSleeves()
+    {
+        return sleeveList.Count;
     }
 
     //spawn sleeves
@@ -53,9 +82,12 @@ public class Part : MonoBehaviour
             }
             //spawn
             sleeveList.Add(Instantiate(sleeve, vectorList[i - 1], Quaternion.identity));
+            //assign corp
+            sleeveList[i - 1].GetComponent<Sleeve>().SleeveCorp = sleeveCorp;
             
         }
     }
+
     
 
     public void OnDestroy()
