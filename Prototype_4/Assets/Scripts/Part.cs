@@ -61,6 +61,7 @@ public class Part : MonoBehaviour
             
         }
     }
+
     
 
     public void OnDestroy()

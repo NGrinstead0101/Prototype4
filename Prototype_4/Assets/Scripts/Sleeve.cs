@@ -47,18 +47,30 @@ public class Sleeve : MonoBehaviour
             Debug.Log("Card's corp is: " + cardCorp);
             Debug.Log("Card's type is: " + cardType);
         }
+       
+    }
+
+    public bool checkSleeve()
+    {
+        //variables to check if corp and types match
+        bool corpMatch = false;
+        bool typeMatch = false;
         //check if card's corp is same as sleeve
         if (cardCorp == sleeveCorp || cardCorp == 3)
         {
             Debug.Log("Corp match. Card's corp is " + cardCorp + " Sleeve's corp is " + sleeveCorp);
+            corpMatch = true;
         }
         else Debug.Log("Corp different. Card's corp is " + cardCorp + " Sleeve's corp is " + sleeveCorp);
         //check if card's type is same as sleeve
         if (cardType == sleeveType || cardCorp == 3)
         {
             Debug.Log("Type match. Card's type is " + cardType + " Sleeve's type is " + sleeveType);
+            typeMatch = true;
         }
         else Debug.Log("Type different.  Card's type is " + cardType + " Sleeve's type is " + sleeveType);
+        //return true if corps match and types match
+        return (corpMatch && typeMatch);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
