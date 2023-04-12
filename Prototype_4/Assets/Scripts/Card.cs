@@ -11,17 +11,20 @@ public class Card : MonoBehaviour
     //mouse position
     Vector2 mousePos;
 
+    [SerializeField] SpriteRenderer typeSR;
+
     [SerializeField] float handExitThreshold;
     bool isZoomed = false;
     bool isInHand = true;
     bool canUnzoom = false;
 
     //"constructor"
-    public void CreateCard(int c, int p, Sprite s, Sprite part)
+    public void CreateCard(int c, int p, Sprite s, Sprite type)
     {
         Corp = c;
         Type = p;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        typeSR.sprite = type;
 
         // temp code to set colors for suits
         switch (corp)
