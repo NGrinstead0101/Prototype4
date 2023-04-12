@@ -81,7 +81,7 @@ public class RobotGenerator : MonoBehaviour
         newPart.SetActive(false);
         int sleeveNum = Random.Range(2, 5);
         Sprite partSprite = partSpriteList[Random.Range(0, partSpriteList.Count)];
-        temp.setPart(partSprite, sleeveNum);
+        temp.setPart(partSprite, sleeveNum, suit);
         Sprite robotSprite = robotSpriteList[Random.Range(0, robotSpriteList.Count)];
         bool hasSecurity = Random.Range(0, 10) == 0;
         string dialogue = dialogueList[Random.Range(0, dialogueList.Count)];

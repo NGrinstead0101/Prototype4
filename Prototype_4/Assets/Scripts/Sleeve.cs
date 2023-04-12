@@ -8,18 +8,24 @@ public class Sleeve : MonoBehaviour
     //check if sleeve has a card on it
     bool filled;
     //check card's corp and part
-    int cardCorp;
-    int cardType;
+    public int cardCorp;
+    public int cardType;
+    public int sleeveCorp;
+    public int sleeveType;
 
     //geter and setter for card's corp and part
     public int CardCorp { get => cardCorp; set => cardCorp = value; }
     public int CardType { get => cardType; set => cardType = value; }
+    public int SleeveCorp { get => sleeveCorp; set => sleeveCorp = value; }
+    public int SleeveType { get => sleeveType; set => sleeveType = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         //initialize variables
-        filled = false;
+        filled = false;       
+        sleeveType = Random.Range(0, 2);
+        
     }
 
     // Update is called once per frame
@@ -41,7 +47,18 @@ public class Sleeve : MonoBehaviour
             Debug.Log("Card's corp is: " + cardCorp);
             Debug.Log("Card's type is: " + cardType);
         }
-       
+        //check if card's corp is same as sleeve
+        if (cardCorp == sleeveCorp || cardCorp == 3)
+        {
+            Debug.Log("Corp match. Card's corp is " + cardCorp + " Sleeve's corp is " + sleeveCorp);
+        }
+        else Debug.Log("Corp different. Card's corp is " + cardCorp + " Sleeve's corp is " + sleeveCorp);
+        //check if card's type is same as sleeve
+        if (cardType == sleeveType || cardCorp == 3)
+        {
+            Debug.Log("Type match. Card's type is " + cardType + " Sleeve's type is " + sleeveType);
+        }
+        else Debug.Log("Type different.  Card's type is " + cardType + " Sleeve's type is " + sleeveType);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
