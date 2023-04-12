@@ -37,10 +37,36 @@ public class Part : MonoBehaviour
         spawnSleeve(sleeves);
     }
 
-    //check card slots
-    public void check()
-    { 
-        
+    //check card corps
+    public int checkCorp()
+    {
+        int matches = 0;
+        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        {
+            if (sleeveList[i].GetComponent<Sleeve>().checkCorp() == true)
+            {
+                matches++;
+            }
+        }
+        return matches;
+    }
+    //check card types
+    public int checkType()
+    {
+        int matches = 0;
+        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        {
+            if (sleeveList[i].GetComponent<Sleeve>().checkType() == true)
+            {
+                matches++;
+            }
+        }
+        return matches;
+    }
+    //check sleeves
+    public int returnSleeves()
+    {
+        return sleeveList.Count;
     }
 
     //spawn sleeves
