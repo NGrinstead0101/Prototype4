@@ -1508,7 +1508,7 @@ MonoBehaviour:
   - Option 4
   - Option 5
   partSpriteList:
-  - {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  - {fileID: 21300000, guid: ad20b763deaa5a04db4b212593e8c31c, type: 3}
   partPrefab: {fileID: 893422994841480115, guid: d82175bc8f920b346a0f65f75a495f4e, type: 3}
   partPosition: {x: -4.5, y: -1}
   corpCountMin: 1
