@@ -46,6 +46,8 @@ public class Sleeve : MonoBehaviour
             cardType = collision.GetComponent<Card>().Type;
             Debug.Log("Card's corp is: " + cardCorp);
             Debug.Log("Card's type is: " + cardType);
+            if (checkCorp()) Debug.Log("Corp match");
+            if (checkType()) Debug.Log("Type match");
         }
        
     }
