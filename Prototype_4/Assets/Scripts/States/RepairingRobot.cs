@@ -22,7 +22,24 @@ public class RepairingRobot : MonoBehaviour, State
     {
         context.confirmButton.SetActive(false);
 
-        context.currentPart.GetComponent<Part>().check();
+        //check matches and sleeves
+        int corpMatches = context.currentPart.GetComponent<Part>().checkCorp();
+        int typeMatches = context.currentPart.GetComponent<Part>().checkType();
+        int sleeves = context.currentPart.GetComponent<Part>().returnSleeves();
+        //set success value
+        int success = Mathf.CeilToInt(sleeves / 2);
+        //check for success
+        if (corpMatches >= success)
+        {
+            //add to money tracker
+            context.mt.GainMoney(corpMatches * 10);
+        }
+        if (typeMatches >= success)
+        {
+            //add to money tracker
+            context.mt.GainMoney(typeMatches * 10);
+        }
+
 
         Invoke("DelayedChange", 2f);
     }
