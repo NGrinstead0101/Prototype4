@@ -92,10 +92,17 @@ public class Part : MonoBehaviour
 
     public void OnDestroy()
     {
-        //when destroyed, remove all sleeves
-        for (int i = sleeveList.Count - 1; i >= 0; i--)
+        if (this != null)
         {
-            GameObject.Destroy(sleeveList[i]);
+            //when destroyed, remove all sleeves
+            for (int i = sleeveList.Count - 1; i >= 0; i--)
+            {
+                if (sleeveList[i] != null)
+                {
+                    sleeveList[i].GetComponent<Sleeve>().ClearCards();
+                    //GameObject.Destroy(sleeveList[i]);
+                }
+            }
         }
     }
 }
