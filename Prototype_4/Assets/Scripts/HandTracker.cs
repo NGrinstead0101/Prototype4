@@ -33,6 +33,14 @@ public class HandTracker : MonoBehaviour
         }
     }
 
+    public void RemoveCard(GameObject card)
+    {
+        if (cardsInHand.Contains(card))
+        {
+            cardsInHand.Remove(card);
+        }
+    }
+
     public void BuyCard(int suit, int type = -1)
     {
         GameObject newCard;
