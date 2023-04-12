@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairingRobot : State
+public class RepairingRobot : MonoBehaviour, State
 {
     GameStateTracker context;
 
@@ -20,10 +20,15 @@ public class RepairingRobot : State
 
     public void ChangeState()
     {
-        // maybe show whether player succeeded or failed then invoke helper method 
-        // to execute following code
-
         context.confirmButton.SetActive(false);
+
+        context.currentPart.GetComponent<Part>().check();
+
+        Invoke("DelayedChange", 2f);
+    }
+
+    private void DelayedChange()
+    {
         context.dialogueBox.text = "";
         context.robotSprite.enabled = false;
         GameObject.Destroy(context.currentPart);
@@ -41,6 +46,6 @@ public class RepairingRobot : State
 
         context.ShowInfo();
     }
-
-   
 }
+
+
