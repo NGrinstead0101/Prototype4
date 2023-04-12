@@ -21,6 +21,25 @@ public class Card : MonoBehaviour
     {
         Corp = c;
         Type = p;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        // temp code to set colors for suits
+        switch (corp)
+        {
+            case 0:
+                sr.color = Color.green;
+                break;
+
+            case 1:
+                sr.color = Color.blue;
+                break;
+
+            case 2:
+                sr.color = Color.red;
+                break;
+        }
+        
+
         //GetComponent<SpriteRenderer>().sprite = s;
         // May need more sprite variables + references to child objects
     }
