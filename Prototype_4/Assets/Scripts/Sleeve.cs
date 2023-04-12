@@ -13,6 +13,8 @@ public class Sleeve : MonoBehaviour
     public int sleeveCorp;
     public int sleeveType;
 
+    GameObject currentCard;
+
     //geter and setter for card's corp and part
     public int CardCorp { get => cardCorp; set => cardCorp = value; }
     public int CardType { get => cardType; set => cardType = value; }
@@ -41,6 +43,7 @@ public class Sleeve : MonoBehaviour
         {
             //filled is true
             filled = true;
+            currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
             cardCorp = collision.GetComponent<Card>().Corp;
             cardType = collision.GetComponent<Card>().Type;
@@ -77,7 +80,14 @@ public class Sleeve : MonoBehaviour
         {
             //filled is false
             filled = false;
+            currentCard = null;
             Debug.Log("Filled: " + filled);
         }
+    }
+
+    public void ClearCards()
+    {
+        Destroy(currentCard);
+        Destroy(gameObject);
     }
 }
