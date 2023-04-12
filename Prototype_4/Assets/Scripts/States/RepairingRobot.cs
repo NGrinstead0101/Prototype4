@@ -15,8 +15,6 @@ public class RepairingRobot : State
     {
         context.confirmButton.SetActive(true);
 
-        // reveal success meter
-        // reveal part + cards?
         context.currentPart.SetActive(true);
     }
 
