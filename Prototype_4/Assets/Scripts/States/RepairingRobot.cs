@@ -22,7 +22,7 @@ public class RepairingRobot : MonoBehaviour, State
     {
         context.confirmButton.SetActive(false);
 
-        context.currentPart.GetComponent<Part>().check();
+        //context.currentPart.GetComponent<Part>().check();
 
         Invoke("DelayedChange", 2f);
     }
