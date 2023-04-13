@@ -5,6 +5,9 @@ using UnityEngine;
 public class Sleeve : MonoBehaviour
 {
 
+    [SerializeField] List<Sprite> typeSpriteList;
+    [SerializeField] SpriteRenderer typeSprite;
+
     //check if sleeve has a card on it
     bool filled;
     //check card's corp and part
@@ -25,9 +28,9 @@ public class Sleeve : MonoBehaviour
     void Start()
     {
         //initialize variables
-        filled = false;       
-        sleeveType = Random.Range(0, 2);
-        
+        filled = false;
+        sleeveType = Random.Range(0, 4);
+        typeSprite.sprite = typeSpriteList[sleeveType];
     }
 
     // Update is called once per frame
