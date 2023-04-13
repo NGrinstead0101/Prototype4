@@ -39,13 +39,11 @@ public class RepairingRobot : State
             if (corpMatches >= success)
             {
                 //add to money tracker
-                context.mt.GainMoney(corpMatches * 10);
+                context.mt.GainMoney(corpMatches * 20);
             }
-            if (typeMatches >= success)
-            {
-                //add to money tracker
-                context.mt.GainMoney(typeMatches * 10);
-            }
+            //add to money tracker
+            context.mt.GainMoney(typeMatches * 10);
+            
 
             context.Invoke("ChangeState", 0.5f);
         }
