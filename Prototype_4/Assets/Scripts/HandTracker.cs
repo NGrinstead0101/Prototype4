@@ -41,7 +41,7 @@ public class HandTracker : MonoBehaviour
         }
     }
 
-    public void BuyCard(int suit, int type = -1)
+    public void BuyCard(int suit, int type)
     {
         GameObject newCard;
 
