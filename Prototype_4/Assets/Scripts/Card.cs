@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    private HandTracker handTracker;
     //corperation type
     public int corp;
     //part type
@@ -25,6 +26,7 @@ public class Card : MonoBehaviour
         Type = p;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         typeSR.sprite = type;
+        handTracker = GameObject.FindGameObjectWithTag("HandTracker").GetComponent<HandTracker>();
 
         // temp code to set colors for suits
         switch (corp)
@@ -108,6 +110,11 @@ public class Card : MonoBehaviour
             //card position becomes sleeve position
             transform.position = collision.transform.position;
         }
+    }
+
+    private void OnDestroy()
+    {
+        handTracker.RemoveCard(gameObject);
     }
 
 }
