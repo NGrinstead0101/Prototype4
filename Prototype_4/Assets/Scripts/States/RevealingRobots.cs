@@ -15,23 +15,26 @@ public class RevealingRobots : State
     {
         Robot currentRobot = context.robotQueue.Dequeue();
 
-        string corpName = "";
-        switch (currentRobot.Corp)
-        {
-            case 0:
-                corpName = "Pear Corp.";
-                break;
+        context.corpLogoImage.enabled = true;
+        context.corpLogoImage.sprite = context.corpLogoSprites[currentRobot.Corp];
 
-            case 1:
-                corpName = "Cyborg Inc.";
-                break;
+        //string corpName = "";
+        //switch (currentRobot.Corp)
+        //{
+            //case 0:
+                //corpName = "Pear Corp.";
+                //break;
 
-            case 2:
-                corpName = "MEGAplex";
-                break;
-        }
+            //case 1:
+                //corpName = "Cyborg Inc.";
+                //break;
 
-        context.dialogueBox.text = "Hello, I'm a " + corpName + " robot! " + currentRobot.Dialogue;
+            //case 2:
+                //corpName = "MEGAplex";
+                //break;
+        //}
+
+        //context.dialogueBox.text = "Hello, I'm a " + corpName + " robot! " + currentRobot.Dialogue;
 
         //get part refference
         context.currentPart = currentRobot.Part;

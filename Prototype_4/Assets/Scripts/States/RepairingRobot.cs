@@ -49,7 +49,8 @@ public class RepairingRobot : State
         }
         else
         {
-            context.dialogueBox.text = "";
+            //context.dialogueBox.text = "";
+            context.corpLogoImage.enabled = false;
             context.robotSprite.enabled = false;
             GameObject.Destroy(context.currentPart);
 
