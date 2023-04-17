@@ -116,9 +116,9 @@ public class Part : MonoBehaviour
                 if (sleeveList[i] != null)
                 {
                     sleeveList[i].GetComponent<Sleeve>().ClearCards();
-                    //GameObject.Destroy(sleeveList[i]);
                 }
             }
+            Debug.Log("Count: " + sleeveList.Count);
         }
     }
 }

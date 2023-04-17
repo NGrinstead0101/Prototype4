@@ -16,7 +16,7 @@ public class Sleeve : MonoBehaviour
     public int sleeveCorp;
     public int sleeveType;
 
-    GameObject currentCard;
+    public GameObject currentCard;
 
     //geter and setter for card's corp and part
     public int CardCorp { get => cardCorp; set => cardCorp = value; }
@@ -44,7 +44,7 @@ public class Sleeve : MonoBehaviour
         //if collision is card
         if (collision.tag.Contains("Card"))
         {
-            //filled is true
+            //filled if true
             filled = true;
             currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
@@ -59,6 +59,21 @@ public class Sleeve : MonoBehaviour
         }
        
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if collision is card
+        if (collision.tag.Contains("Card"))
+        {
+            //filled if true
+            filled = true;
+            currentCard = collision.gameObject;
+           
+            cardCorp = collision.GetComponent<Card>().Corp;
+            cardType = collision.GetComponent<Card>().Type;
+            
+        }
+    }
+
 
     public bool checkCorp()
     {
@@ -94,6 +109,7 @@ public class Sleeve : MonoBehaviour
 
     public void ClearCards()
     {
+        Debug.Log("ClearCardsCalled");
         Destroy(currentCard);
         Destroy(gameObject);
     }
