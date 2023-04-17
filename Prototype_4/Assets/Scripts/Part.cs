@@ -28,6 +28,18 @@ public class Part : MonoBehaviour
         Debug.Log("NEW SLEEVE CORP: " + sleeveCorp);
     }
 
+    public void UpdateSuit(int suit)
+    {
+        Debug.Log("Value passed to UpdateSuit: " + suit);
+
+        sleeveCorp = suit;
+
+        foreach (GameObject sleeve in sleeveList)
+        {
+            sleeve.GetComponent<Sleeve>().sleeveCorp = suit;
+        }
+    }
+
     private void Start()
     {
         //set vector array
@@ -87,7 +99,7 @@ public class Part : MonoBehaviour
             sleeveList.Add(Instantiate(sleeve, vectorList[i - 1], Quaternion.identity));
             //assign corp
             sleeveList[i - 1].GetComponent<Sleeve>().SleeveCorp = sleeveCorp;
-            Debug.Log("SLEEVE'S CORP: " + sleeveCorp);
+            //Debug.Log("SLEEVE'S CORP: " + sleeveCorp);
             
         }
     }

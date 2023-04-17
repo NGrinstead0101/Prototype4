@@ -77,12 +77,14 @@ public class RobotGenerator : MonoBehaviour
     private Robot GenerationHelper(int suit)
     {
         Debug.Log("SUIT OF ROBOT:" + suit);
+
         GameObject newPart = Instantiate(partPrefab, partPosition, Quaternion.identity);
         Part temp = partPrefab.GetComponent<Part>();
-        newPart.SetActive(false);
         int sleeveNum = Random.Range(2, 5);
         Sprite partSprite = partSpriteList[Random.Range(0, partSpriteList.Count)];
         temp.setPart(partSprite, sleeveNum, suit);
+        newPart.SetActive(false);
+
         Sprite robotSprite = robotSpriteList[Random.Range(0, robotSpriteList.Count)];
         bool hasSecurity = Random.Range(0, 10) == 0;
         string dialogue = dialogueList[Random.Range(0, dialogueList.Count)];
