@@ -11,7 +11,7 @@ public class Part : MonoBehaviour
     int returnedCorp;
     int returnedType;
     //corp to assign to sleeve
-    int sleeveCorp;
+    public int sleeveCorp;
     public GameObject sleeve;
     public List<GameObject> sleeveList = new List<GameObject>();
     public Vector2[] vectorList;
@@ -23,7 +23,9 @@ public class Part : MonoBehaviour
         
         sleeves = sl;
         GetComponent<SpriteRenderer>().sprite = s;
+        Debug.Log("CORP OF ROBOT:" + robotCorp);
         sleeveCorp = robotCorp;
+        Debug.Log("NEW SLEEVE CORP: " + sleeveCorp);
     }
 
     private void Start()
@@ -34,6 +36,7 @@ public class Part : MonoBehaviour
         vectorList[1] = new Vector2(transform.position.x + 1.5f, transform.position.y + 2);
         vectorList[2] = new Vector2(transform.position.x - 2.5f, transform.position.y - 0.5f);
         vectorList[3] = new Vector2(transform.position.x + 2.5f, transform.position.y - 0.5f);
+        Debug.Log("spawning sleeves");
         spawnSleeve(sleeves);
     }
 
@@ -84,6 +87,7 @@ public class Part : MonoBehaviour
             sleeveList.Add(Instantiate(sleeve, vectorList[i - 1], Quaternion.identity));
             //assign corp
             sleeveList[i - 1].GetComponent<Sleeve>().SleeveCorp = sleeveCorp;
+            Debug.Log("SLEEVE'S CORP: " + sleeveCorp);
             
         }
     }
