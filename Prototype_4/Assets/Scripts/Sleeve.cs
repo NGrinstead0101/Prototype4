@@ -11,8 +11,8 @@ public class Sleeve : MonoBehaviour
     //check if sleeve has a card on it
     bool filled;
     //check card's corp and part
-    public int cardCorp;
-    public int cardType;
+    public int cardCorp = -1;
+    public int cardType = -1;
     public int sleeveCorp;
     public int sleeveType;
 
@@ -62,7 +62,7 @@ public class Sleeve : MonoBehaviour
 
     public bool checkCorp()
     {
-        if (sleeveCorp == cardCorp)
+        if (filled && (sleeveCorp == cardCorp || cardCorp == 3))
         {
             return true;
         }
@@ -71,7 +71,7 @@ public class Sleeve : MonoBehaviour
 
     public bool checkType()
     {
-        if (sleeveType == cardType)
+        if (filled && sleeveType == cardType)
         {
             return true;
         }

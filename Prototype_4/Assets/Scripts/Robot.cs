@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Robot : MonoBehaviour
+public class Robot
 {
     int corp;
     GameObject part;

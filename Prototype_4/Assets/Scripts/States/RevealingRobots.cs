@@ -35,6 +35,7 @@ public class RevealingRobots : State
 
         //get part refference
         context.currentPart = currentRobot.Part;
+        context.currentPart.GetComponent<Part>().UpdateSuit(currentRobot.Corp);
 
         // update robot sprite
         context.robotSprite.enabled = true;
