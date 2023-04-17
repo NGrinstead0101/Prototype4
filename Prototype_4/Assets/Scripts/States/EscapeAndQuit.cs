@@ -13,4 +13,9 @@ public class EscapeAndQuit : MonoBehaviour
             Application.Quit();
         }
     }
+
+    public void MenuQuitButton()
+    {
+        Application.Quit();
+    }
 }
