@@ -5,7 +5,7 @@ using TMPro;
 
 public class MoneyTracker : MonoBehaviour
 {
-    int moneyTotal = 0;
+    public int moneyTotal = 0;
 
     [SerializeField] TextMeshProUGUI moneyText;
 

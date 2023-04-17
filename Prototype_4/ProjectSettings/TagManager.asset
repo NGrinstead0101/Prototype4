@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Card
   - Sleeve
+  - HandTracker
+  - MoneyTracker
   layers:
   - Default
   - TransparentFX
