@@ -1904,3 +1904,5 @@ MonoBehaviour:
     repair it.
   - At least half of the cards used must match the corporation that built the robot.
     Matching parts can give extra money.
+  - 'Color Key: Green = Pear Corp, Blue = Cyborg Inc, Red = MEGAplex, and White =
+    Homebrew'
