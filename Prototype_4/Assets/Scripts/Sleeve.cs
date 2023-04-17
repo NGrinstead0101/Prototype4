@@ -110,7 +110,7 @@ public class Sleeve : MonoBehaviour
     public void ClearCards()
     {
         Debug.Log("ClearCardsCalled");
-        Destroy(currentCard);
+        Destroy(currentCard.gameObject);
         Destroy(gameObject);
     }
 }
