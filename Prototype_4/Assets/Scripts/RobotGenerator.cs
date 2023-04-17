@@ -76,6 +76,7 @@ public class RobotGenerator : MonoBehaviour
     /// <returns>A completed Robot</returns>
     private Robot GenerationHelper(int suit)
     {
+        Debug.Log("SUIT OF ROBOT:" + suit);
         GameObject newPart = Instantiate(partPrefab, partPosition, Quaternion.identity);
         Part temp = partPrefab.GetComponent<Part>();
         newPart.SetActive(false);
