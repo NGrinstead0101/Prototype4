@@ -30,7 +30,12 @@ public class MenuButtons : MonoBehaviour
     public void CycleInstructions()
     {
         ++currentIndex;
-        currentIndex %= instructionsList.Count;
+
+        if (currentIndex == instructionsList.Count)
+        {
+            instructionsUI.SetActive(false);
+            currentIndex = 0;
+        }
 
         instructionsText.text = instructionsList[currentIndex];
     }
