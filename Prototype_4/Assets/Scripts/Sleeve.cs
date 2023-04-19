@@ -45,7 +45,10 @@ public class Sleeve : MonoBehaviour
         if (collision.tag.Contains("Card") && currentCard == null)
         {
             //filled if true
-            filled = true;
+            if (Input.GetMouseButton(0) == false)
+            {
+                filled = true;
+            }
             currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
             cardCorp = collision.GetComponent<Card>().Corp;
