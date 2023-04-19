@@ -9,6 +9,8 @@ public class Card : MonoBehaviour
     public int corp;
     //part type
     public int type;
+    //target type for bonus
+    public int typeBonus;
     //mouse position
     Vector2 mousePos;
 
@@ -20,7 +22,7 @@ public class Card : MonoBehaviour
     bool canUnzoom = false;
 
     //"constructor"
-    public void CreateCard(int c, int p, Sprite s, Sprite type)
+    public void CreateCard(int c, int p,/**/ Sprite s, Sprite type)
     {
         Corp = c;
         Type = p;
