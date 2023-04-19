@@ -102,15 +102,17 @@ public class Card : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //if mousse is down and coliding with sleeve
-        if (Input.GetMouseButton(0) == false && collision.tag.Contains("Sleeve"))
-        {
-            //card position becomes sleeve position
-            transform.position = collision.transform.position;
+        //if coliding with sleeve and filled is false
+        if (collision.tag.Contains("Sleeve"))
+        { 
+           //card position becomes sleeve position
+           transform.position = collision.transform.position;
         }
     }
+    
 
     private void OnDestroy()
     {
