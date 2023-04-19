@@ -18,6 +18,11 @@ public class MoneyTracker : MonoBehaviour
     public void SpendMoney(int money)
     {
         moneyTotal -= money;
+        if (moneyTotal < 0)
+        {
+            moneyTotal = 0;
+        }
+
         moneyText.text = "$" + moneyTotal;
     }
 }
