@@ -9,7 +9,7 @@ public class Sleeve : MonoBehaviour
     [SerializeField] SpriteRenderer typeSprite;
 
     //check if sleeve has a card on it
-    bool filled;
+    public bool filled;
     //check card's corp and part
     public int cardCorp = -1;
     public int cardType = -1;
@@ -42,7 +42,7 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card") && filled == false)
+        if (collision.tag.Contains("Card") && currentCard == null)
         {
             //filled if true
             filled = true;
@@ -57,12 +57,15 @@ public class Sleeve : MonoBehaviour
             if (checkCorp()) Debug.Log("Corp match");
             if (checkType()) Debug.Log("Type match");
         }
+            
        
     }
+
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card") && filled == false)
+        if (collision.tag.Contains("Card") && currentCard == null)
         {
             //filled if true
             filled = true;
@@ -73,6 +76,7 @@ public class Sleeve : MonoBehaviour
             
         }
     }
+    */
 
 
     public bool checkCorp()
