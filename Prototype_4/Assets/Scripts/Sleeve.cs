@@ -9,14 +9,14 @@ public class Sleeve : MonoBehaviour
     [SerializeField] SpriteRenderer typeSprite;
 
     //check if sleeve has a card on it
-    bool filled;
+    public bool filled;
     //check card's corp and part
     public int cardCorp = -1;
     public int cardType = -1;
     public int sleeveCorp;
     public int sleeveType;
 
-    GameObject currentCard;
+    public GameObject currentCard;
 
     //geter and setter for card's corp and part
     public int CardCorp { get => cardCorp; set => cardCorp = value; }
@@ -42,9 +42,9 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card"))
+        if (collision.tag.Contains("Card") && currentCard == null)
         {
-            //filled is true
+            //filled if true
             filled = true;
             currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
@@ -57,8 +57,27 @@ public class Sleeve : MonoBehaviour
             if (checkCorp()) Debug.Log("Corp match");
             if (checkType()) Debug.Log("Type match");
         }
+            
        
     }
+
+    /*
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if collision is card
+        if (collision.tag.Contains("Card") && currentCard == null)
+        {
+            //filled if true
+            filled = true;
+            currentCard = collision.gameObject;
+           
+            cardCorp = collision.GetComponent<Card>().Corp;
+            cardType = collision.GetComponent<Card>().Type;
+            
+        }
+    }
+    */
+
 
     public bool checkCorp()
     {
@@ -83,10 +102,12 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card"))
+        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject)
         {
             //filled is false
             filled = false;
+            cardCorp = -1;
+            cardType = -1;
             currentCard = null;
             Debug.Log("Filled: " + filled);
         }
@@ -94,7 +115,11 @@ public class Sleeve : MonoBehaviour
 
     public void ClearCards()
     {
-        Destroy(currentCard);
+        Debug.Log("ClearCardsCalled");
+        if (currentCard != null)
+        {
+            Destroy(currentCard.gameObject);
+        }
         Destroy(gameObject);
     }
 }
