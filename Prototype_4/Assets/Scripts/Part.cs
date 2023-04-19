@@ -52,6 +52,21 @@ public class Part : MonoBehaviour
         spawnSleeve(sleeves);
     }
 
+    public int checkIsEmpty()
+    {
+        int numEmpty = 0;
+
+        foreach (GameObject sleeve in sleeveList)
+        {
+            if (sleeve.GetComponent<Sleeve>().cardCorp == -1)
+            {
+                ++numEmpty;
+            }
+        }
+
+        return numEmpty;
+    }
+
     //check card corps
     public int checkCorp()
     {

@@ -18,6 +18,8 @@ public class RepairingRobot : State
 
         context.currentPart.SetActive(true);
 
+        context.moneyFeedback.AddPart(context.currentPart.GetComponent<Part>());
+
         changeStateCalled = false;
     }
 
@@ -29,6 +31,8 @@ public class RepairingRobot : State
 
             context.confirmButton.SetActive(false);
 
+            context.moneyFeedback.ResetFeedback();
+
             //check matches and sleeves
             int corpMatches = context.currentPart.GetComponent<Part>().checkCorp();
             int typeMatches = context.currentPart.GetComponent<Part>().checkType();
@@ -39,11 +43,13 @@ public class RepairingRobot : State
             if (corpMatches >= success)
             {
                 //add to money tracker
-                context.mt.GainMoney(corpMatches * 20);
+                context.mt.GainMoney(corpMatches * 30);
             }
             //add to money tracker
-            context.mt.GainMoney(typeMatches * 10);
-            
+            context.mt.GainMoney(typeMatches * 20);
+
+            int numEmpty = context.currentPart.GetComponent<Part>().checkIsEmpty();
+            context.mt.SpendMoney(numEmpty * 40);
 
             context.Invoke("ChangeState", 0.5f);
         }
