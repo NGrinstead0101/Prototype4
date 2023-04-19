@@ -9,8 +9,11 @@ public class GameStateTracker : MonoBehaviour
     public Queue<Robot> robotQueue = new Queue<Robot>();
     public RobotGenerator robotGenerator;
 
+    public Image corpLogoImage;
+    public List<Sprite> corpLogoSprites = new List<Sprite>(4);
+
     public GameObject confirmButton;
-    public TextMeshProUGUI dialogueBox;
+    //public TextMeshProUGUI dialogueBox;
     public GameObject storeInterface;
     public Image robotSprite;
     public GameObject currentPart;
