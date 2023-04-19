@@ -5521,7 +5521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardsInHand: []
-  leftHandBound: {x: -8, y: -4}
+  leftHandBound: {x: -8, y: -3.78}
   spacing: 1
   cardConstruction: {fileID: 1278076210}
 --- !u!1 &1328572523

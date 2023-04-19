@@ -6,12 +6,15 @@ public class HandTracker : MonoBehaviour
 {
     public List<GameObject> cardsInHand;
     [SerializeField] Vector2 leftHandBound;
+    Vector2 secondRowLeftBound;
     [SerializeField] float spacing;
 
     [SerializeField] CardConstruction cardConstruction;
 
     private void Awake()
     {
+        secondRowLeftBound = new Vector2(leftHandBound.x, leftHandBound.y - 0.92f);
+
         cardsInHand = cardConstruction.GenerateBaseCards();
 
         PositionCards();
@@ -27,7 +30,15 @@ public class HandTracker : MonoBehaviour
 
             for (int i = 1; i < cardsInHand.Count; ++i)
             {
-                cardsInHand[i].transform.position = new Vector2(previousCard.transform.position.x + spacing, previousCard.transform.position.y);
+                float newXPos = previousCard.transform.position.x + spacing;
+                if (newXPos >= 8)
+                {
+                    cardsInHand[i].transform.position = secondRowLeftBound;
+                }
+                else
+                {
+                    cardsInHand[i].transform.position = new Vector2(newXPos, previousCard.transform.position.y);
+                }
                 previousCard = cardsInHand[i];
             }
         }
