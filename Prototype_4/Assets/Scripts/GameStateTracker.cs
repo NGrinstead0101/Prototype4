@@ -18,6 +18,7 @@ public class GameStateTracker : MonoBehaviour
     public Image robotSprite;
     public GameObject currentPart;
     public MoneyTracker mt;
+    public MoneyFeedback moneyFeedback;
     // variable referencing PA message (probably other class?)
 
     public static State revealingRobots;
