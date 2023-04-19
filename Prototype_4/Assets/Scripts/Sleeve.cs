@@ -42,7 +42,7 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card"))
+        if (collision.tag.Contains("Card") && filled == false)
         {
             //filled if true
             filled = true;
@@ -62,7 +62,7 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card"))
+        if (collision.tag.Contains("Card") && filled == false)
         {
             //filled if true
             filled = true;
@@ -98,10 +98,12 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card"))
+        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject)
         {
             //filled is false
             filled = false;
+            cardCorp = -1;
+            cardType = -1;
             currentCard = null;
             Debug.Log("Filled: " + filled);
         }
@@ -110,7 +112,10 @@ public class Sleeve : MonoBehaviour
     public void ClearCards()
     {
         Debug.Log("ClearCardsCalled");
-        Destroy(currentCard.gameObject);
+        if (currentCard != null)
+        {
+            Destroy(currentCard.gameObject);
+        }
         Destroy(gameObject);
     }
 }

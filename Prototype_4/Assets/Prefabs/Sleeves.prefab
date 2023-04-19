@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &6665422208274939242
 MonoBehaviour:
@@ -157,6 +157,7 @@ MonoBehaviour:
   cardType: 0
   sleeveCorp: 0
   sleeveType: 0
+  currentCard: {fileID: 0}
 --- !u!1 &9053483232793689891
 GameObject:
   m_ObjectHideFlags: 0
