@@ -42,10 +42,8 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card") && currentCard == null)
+        if (collision.tag.Contains("Card") && filled == false)
         {
-            //filled if true
-            filled = true;
             currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
             cardCorp = collision.GetComponent<Card>().Corp;
@@ -56,6 +54,8 @@ public class Sleeve : MonoBehaviour
             Debug.Log("Sleeve's type is: " + sleeveType);
             if (checkCorp()) Debug.Log("Corp match");
             if (checkType()) Debug.Log("Type match");
+            Invoke("SetFilled", 0.1f);
+            
         }
             
        
@@ -65,18 +65,14 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card") && currentCard == null)
+        if (collision.tag.Contains("Card"))
         {
-            //filled if true
-            filled = true;
-            currentCard = collision.gameObject;
-           
-            cardCorp = collision.GetComponent<Card>().Corp;
-            cardType = collision.GetComponent<Card>().Type;
+            collision.transform.position = transform.position;
             
         }
     }
     */
+
 
 
     public bool checkCorp()
@@ -97,6 +93,11 @@ public class Sleeve : MonoBehaviour
         else return false;
     }
 
+    public void SetFilled()
+    {
+        filled = true;
+
+    }
     
 
     private void OnTriggerExit2D(Collider2D collision)

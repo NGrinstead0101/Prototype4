@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     public int typeBonus;
     //mouse position
     Vector2 mousePos;
+    public bool canMove = true;
 
     [SerializeField] SpriteRenderer typeSR;
 
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
     bool isZoomed = false;
     bool isInHand = true;
     bool canUnzoom = false;
+    
 
     //"constructor"
     public void CreateCard(int c, int p,/**/ Sprite s, Sprite type)
@@ -55,16 +57,22 @@ public class Card : MonoBehaviour
     //getter and setter for part
     public int Corp { get => corp; set => corp = value; }
 
-
+    private void OnMouseDown()
+    {
+        canMove = true;
+    }
     //drag for movement
     private void OnMouseDrag()
     {
-        //update position
-        transform.position = mousePos;
-
-        if (transform.position.y >= handExitThreshold)
+        if (canMove == true)
         {
-            isInHand = false;
+            //update position
+            transform.position = mousePos;
+
+            if (transform.position.y >= handExitThreshold)
+            {
+                isInHand = false;
+            }
         }
     }
 
@@ -108,8 +116,9 @@ public class Card : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if coliding with sleeve and filled is false
-        if (collision.tag.Contains("Sleeve"))
-        { 
+        if (collision.tag.Contains("Sleeve") && !collision.GetComponent<Sleeve>().filled)
+        {
+            canMove = false;
            //card position becomes sleeve position
            transform.position = collision.transform.position;
         }
