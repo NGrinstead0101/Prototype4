@@ -47,7 +47,7 @@ public class MoneyFeedback : MonoBehaviour
             }
 
             int numCorpMatches = currentPart.checkCorp();
-            int successAmount = Mathf.CeilToInt(currentPart.sleeves / 2);
+            int successAmount = Mathf.CeilToInt(currentPart.sleeves / 2f);
             if (numCorpMatches >= successAmount)
             {
                 newFeedback += "\n+$" + (30 * numCorpMatches) + " matching corporations";
