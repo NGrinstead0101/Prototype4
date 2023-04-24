@@ -103,7 +103,7 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if collision is card
-        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject)
+        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject && collision != null)
         {
             //filled is false
             filled = false;
