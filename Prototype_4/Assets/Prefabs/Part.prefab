@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sleeves: 2
-  sleeveCorp: 2
+  sleeveCorp: 0
   sleeve: {fileID: 7742993586581981892, guid: 57accec1aa64a214db3b92092a4ec0ac, type: 3}
   sleeveList: []
   vectorList: []
