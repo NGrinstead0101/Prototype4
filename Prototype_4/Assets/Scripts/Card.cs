@@ -106,7 +106,7 @@ public class Card : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if coliding with sleeve and filled is false
-        if (collision.tag.Contains("Sleeve")&& collision.gameObject.GetComponent<Sleeve>().filled == false)
+        if (collision.tag.Contains("Sleeve"))
         { 
            //card position becomes sleeve position
            transform.position = collision.transform.position;
