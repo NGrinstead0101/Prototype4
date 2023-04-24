@@ -93,6 +93,27 @@ public class Part : MonoBehaviour
         }
         return matches;
     }
+
+    public int checkBonuses()
+    {
+        int totalBonusMoney = 0;
+
+        foreach (GameObject currentSleeve in sleeveList)
+        {
+            Sleeve sleeveScript = currentSleeve.GetComponent<Sleeve>();
+            CardBonus tempBonus = sleeveScript.currentCard.GetComponent<Card>().cardBonus;
+
+            foreach (GameObject checkSleeve in sleeveList)
+            {
+                // Skips over currentSleeve
+                if (currentSleeve != checkSleeve)
+                {
+                    
+                }
+            }
+        }
+    }
+
     //check sleeves
     public int returnSleeves()
     {

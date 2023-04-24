@@ -8634,9 +8634,34 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70958411a9d5c524a85c4f1dc01f64cb, type: 3}
   - {fileID: 21300000, guid: e40c377a6f1cc7a47bd79edd85fefa5a, type: 3}
   dialogueList:
-  - 
-  - 
-  - 
+  - "Hi\u2026um, can you fix this?"
+  - "Hello! Rain, huh? I\u2019m gonna have so much rust\u2026 "
+  - 'Ugh, this is my third time here this week! '
+  - "It broke again\u2026 they don\u2019t build us to last anymore. "
+  - "These cheap parts just aren\u2019t very durable, are they? "
+  - "I\u2019m so clumsy; they need to make better parts for klutzes like me.  "
+  - "It happened again\u2026 I\u2019m going to be replaced if this keeps up. "
+  - "Why does stuff keep breaking? I can\u2019t keep paying for this! "
+  - "Some dog chased me like I was a car! Can\u2019t they tell the difference?? "
+  - "You\u2019re willing to fix an outdated model, right? I can\u2019t find anyone
+    else. "
+  - "Y\u2019know, it sucks they don\u2019t make the parts I need anymore. Good thing
+    I found your shop! "
+  - "Hello, how are you? I\u2019m falling apart, thanks for asking.  "
+  - 'They make us with such cheap material. Corporations, am I right? '
+  - "Can you make me better for the environment? I don\u2019t want to hurt anyone! "
+  - "I\u2019d like an upgrade, please. I want to be more eco-friendly. "
+  - 'I was only made five months ago and this thing broke already! Can you help me? '
+  - "These newer robots think they\u2019re all that, but back in my day, a robot
+    could go on runnin\u2019 just fine for 12 years\u2026 (You\u2019re not listening
+    to this guy\u2019s rambling.) "
+  - "If this stupid part breaks one more time, I\u2019m gonna start a protest. Seriously. "
+  - "Can you fix it quickly? I\u2019m going to be late for work! "
+  - "Hey, what\u2019s up? Doing good?  Make sure you don't get caught, okay? "
+  - "First I get replaced at work with a newer model, now this? Today\u2019s been
+    rough, man. "
+  - "Have you heard? They\u2019re sending some older robots to the junkyard. How
+    horrible! "
   partSpriteList:
   - {fileID: 21300000, guid: ad20b763deaa5a04db4b212593e8c31c, type: 3}
   - {fileID: 21300000, guid: 07b4d8ef5d206f142aff432806185661, type: 3}
@@ -9047,6 +9072,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3a8fe99c84447794682b8e5e38060a90, type: 3}
   - {fileID: 21300000, guid: a2a6b41975df0bf4d8f2a69afe7762d6, type: 3}
   confirmButton: {fileID: 51474739}
+  dialogueBox: {fileID: 1435047615}
   storeInterface: {fileID: 2074809562}
   robotSprite: {fileID: 701483396}
   currentPart: {fileID: 0}
