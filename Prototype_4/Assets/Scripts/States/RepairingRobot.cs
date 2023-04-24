@@ -38,7 +38,7 @@ public class RepairingRobot : State
             int typeMatches = context.currentPart.GetComponent<Part>().checkType();
             int sleeves = context.currentPart.GetComponent<Part>().returnSleeves();
             //set success value
-            int success = Mathf.CeilToInt(sleeves / 2);
+            int success = Mathf.CeilToInt(sleeves / 2f);
             //check for success
             if (corpMatches >= success)
             {
