@@ -37,6 +37,7 @@ public class RepairingRobot : State
             int corpMatches = context.currentPart.GetComponent<Part>().checkCorp();
             int typeMatches = context.currentPart.GetComponent<Part>().checkType();
             int sleeves = context.currentPart.GetComponent<Part>().returnSleeves();
+            int bonusMoney = context.currentPart.GetComponent<Part>().checkBonuses();
             //set success value
             int success = Mathf.CeilToInt(sleeves / 2f);
             //check for success
@@ -47,6 +48,9 @@ public class RepairingRobot : State
             }
             //add to money tracker
             context.mt.GainMoney(typeMatches * 20);
+
+            //add money for bonuses
+            context.mt.GainMoney(bonusMoney);
 
             int numEmpty = context.currentPart.GetComponent<Part>().checkIsEmpty();
             context.mt.SpendMoney(numEmpty * 40);

@@ -14,6 +14,8 @@ public class Card : MonoBehaviour
     //mouse position
     Vector2 mousePos;
     public bool canMove = true;
+    //card bonus
+    public CardBonus cardBonus;
 
     [SerializeField] SpriteRenderer typeSR;
 
@@ -24,13 +26,15 @@ public class Card : MonoBehaviour
     
 
     //"constructor"
-    public void CreateCard(int c, int p,/**/ Sprite s, Sprite type)
+    public void CreateCard(int c, int p, CardBonus cardBonus, Sprite s, Sprite type)
     {
         Corp = c;
         Type = p;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         typeSR.sprite = type;
         handTracker = GameObject.FindGameObjectWithTag("HandTracker").GetComponent<HandTracker>();
+        this.cardBonus = cardBonus;
+        // update child object sprites to reflect bonuses
 
         // temp code to set colors for suits
         switch (corp)

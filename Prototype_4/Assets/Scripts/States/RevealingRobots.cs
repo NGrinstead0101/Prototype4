@@ -34,7 +34,7 @@ public class RevealingRobots : State
                 //break;
         //}
 
-        //context.dialogueBox.text = "Hello, I'm a " + corpName + " robot! " + currentRobot.Dialogue;
+        context.dialogueBox.text = currentRobot.Dialogue;
 
         //get part refference
         context.currentPart = currentRobot.Part;
