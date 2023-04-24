@@ -57,6 +57,9 @@ public class MoneyFeedback : MonoBehaviour
                 newFeedback += "\n+$0 not enough corporation matches";
             }
 
+            int bonusMoney = currentPart.checkBonuses();
+            newFeedback += "\n+$" + bonusMoney + " card bonuses";
+
             moneyFeedbackText.text = newFeedback;
         }
     }

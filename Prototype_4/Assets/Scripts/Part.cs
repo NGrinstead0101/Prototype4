@@ -94,6 +94,7 @@ public class Part : MonoBehaviour
         return matches;
     }
 
+    // determines how much money is gained from bonuses
     public int checkBonuses()
     {
         int totalBonusMoney = 0;
@@ -101,17 +102,40 @@ public class Part : MonoBehaviour
         foreach (GameObject currentSleeve in sleeveList)
         {
             Sleeve sleeveScript = currentSleeve.GetComponent<Sleeve>();
-            CardBonus tempBonus = sleeveScript.currentCard.GetComponent<Card>().cardBonus;
-
-            foreach (GameObject checkSleeve in sleeveList)
+            CardBonus tempBonus = null;
+            if (sleeveScript.currentCard != null)
             {
-                // Skips over currentSleeve
-                if (currentSleeve != checkSleeve)
+                tempBonus = sleeveScript.currentCard.GetComponent<Card>().cardBonus;
+            }
+
+            // skips comparisons if a card has no bonus
+            if (tempBonus != null)
+            {
+                // checks each other sleeve for a matching card type
+                foreach (GameObject checkSleeve in sleeveList)
                 {
-                    
+                    // skips over currentSleeve
+                    if (currentSleeve != checkSleeve)
+                    {
+                        if (tempBonus.bonusTargetType == checkSleeve.GetComponent<Sleeve>().cardType)
+                        {
+                            if (tempBonus.isMultiplier)
+                            {
+                                totalBonusMoney += 20;
+                            }
+                            else
+                            {
+                                totalBonusMoney += 2;
+                            }
+
+                            break;
+                        }
+                    }
                 }
             }
         }
+
+        return totalBonusMoney;
     }
 
     //check sleeves

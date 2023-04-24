@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde59ecd1d44164e9cecde2119d18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleeves: 4
-  sleeveCorp: 0
+  sleeves: 3
+  sleeveCorp: 2
   sleeve: {fileID: 7742993586581981892, guid: 57accec1aa64a214db3b92092a4ec0ac, type: 3}
   sleeveList: []
   vectorList: []

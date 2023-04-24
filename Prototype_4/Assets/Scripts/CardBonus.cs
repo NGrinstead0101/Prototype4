@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CardBonus
 {
-    int bonusTargetType = -1;
-    bool isMultiplier;
+    public int bonusTargetType = -1;
+    public bool isMultiplier;
 
     public CardBonus(int type, bool isMultiplier)
     {
