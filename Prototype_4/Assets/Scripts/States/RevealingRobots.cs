@@ -21,19 +21,20 @@ public class RevealingRobots : State
         //string corpName = "";
         //switch (currentRobot.Corp)
         //{
-            //case 0:
-                //corpName = "Pear Corp.";
-                //break;
+        //case 0:
+        //corpName = "Pear Corp.";
+        //break;
 
-            //case 1:
-                //corpName = "Cyborg Inc.";
-                //break;
+        //case 1:
+        //corpName = "Cyborg Inc.";
+        //break;
 
-            //case 2:
-                //corpName = "MEGAplex";
-                //break;
+        //case 2:
+        //corpName = "MEGAplex";
+        //break;
         //}
 
+        context.speechBubble.SetActive(true);
         context.dialogueBox.text = currentRobot.Dialogue;
 
         //get part refference
