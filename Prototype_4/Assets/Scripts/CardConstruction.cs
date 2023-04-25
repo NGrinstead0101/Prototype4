@@ -27,7 +27,7 @@ public class CardConstruction : MonoBehaviour
             {
                 temp = Instantiate(baseCardPrefab);
                 currentCard = temp.GetComponent<Card>();
-                currentCard.CreateCard(i, j, corpSprites[i], typeSprites[j]);
+                currentCard.CreateCard(i, j, BonusGenerator(), corpSprites[i], typeSprites[j]);
                 newCards.Add(temp);
             }
         }
@@ -41,7 +41,7 @@ public class CardConstruction : MonoBehaviour
         
         currentCard = temp.GetComponent<Card>();
         int randType = Random.Range(0, 4);
-        currentCard.CreateCard(chosenSuit, randType, corpSprites[chosenSuit], typeSprites[randType]);
+        currentCard.CreateCard(chosenSuit, randType, BonusGenerator(), corpSprites[chosenSuit], typeSprites[randType]);
 
         return temp;
     }
@@ -51,8 +51,29 @@ public class CardConstruction : MonoBehaviour
         GameObject temp = Instantiate(baseCardPrefab);
 
         currentCard = temp.GetComponent<Card>();
-        currentCard.CreateCard(chosenSuit, chosenType, corpSprites[chosenSuit], typeSprites[chosenType]);
+        currentCard.CreateCard(chosenSuit, chosenType, BonusGenerator(), corpSprites[chosenSuit], typeSprites[chosenType]);
 
         return temp;
+    }
+
+    private CardBonus BonusGenerator()
+    {
+        int randomNum = Random.Range(0, 100);
+
+        if (randomNum <= 2)
+        {
+            // card has x2 bonus
+            int bonusType = Random.Range(0, 4);
+            return new CardBonus(bonusType, true);
+        }
+        else if (randomNum < 10)
+        {
+            // card has +2 bonus
+            int bonusType = Random.Range(0, 4);
+            return new CardBonus(bonusType, false);
+        }
+
+        // card has no bonus
+        return null;
     }
 }
