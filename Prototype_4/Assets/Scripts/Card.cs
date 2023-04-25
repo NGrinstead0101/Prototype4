@@ -57,13 +57,17 @@ public class Card : MonoBehaviour
     //getter and setter for part
     public int Corp { get => corp; set => corp = value; }
 
-    private void OnMouseDown()
+    
+    private void OnMouseEnter()
     {
         canMove = true;
     }
+
+
     //drag for movement
     private void OnMouseDrag()
     {
+        
         if (canMove == true)
         {
             //update position

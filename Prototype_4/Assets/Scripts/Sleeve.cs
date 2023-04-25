@@ -55,8 +55,7 @@ public class Sleeve : MonoBehaviour
             Debug.Log("Sleeve's type is: " + sleeveType);
             if (checkCorp()) Debug.Log("Corp match");
             if (checkType()) Debug.Log("Type match");
-           
-            
+                 
         }
             
        
@@ -104,7 +103,7 @@ public class Sleeve : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if collision is card.
-        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject)
+        if (collision.tag.Contains("Card") && collision.gameObject == currentCard.gameObject && currentCard != null)
         {
             //filled is false
             filled = false;
