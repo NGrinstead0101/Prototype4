@@ -46,8 +46,8 @@ public class Part : MonoBehaviour
         vectorList = new Vector2[4];
         vectorList[0] = new Vector2(transform.position.x - 1.5f, transform.position.y + 2);
         vectorList[1] = new Vector2(transform.position.x + 1.5f, transform.position.y + 2);
-        vectorList[2] = new Vector2(transform.position.x - 2.5f, transform.position.y - 0.5f);
-        vectorList[3] = new Vector2(transform.position.x + 2.5f, transform.position.y - 0.5f);
+        vectorList[2] = new Vector2(transform.position.x - 3.5f, transform.position.y + 0.5f);
+        vectorList[3] = new Vector2(transform.position.x + 3.5f, transform.position.y + 0.5f);
         Debug.Log("spawning sleeves");
         spawnSleeve(sleeves);
     }

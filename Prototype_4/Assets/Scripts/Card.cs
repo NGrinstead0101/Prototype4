@@ -18,11 +18,18 @@ public class Card : MonoBehaviour
     public CardBonus cardBonus;
 
     [SerializeField] SpriteRenderer typeSR;
+    [SerializeField] SpriteRenderer corpSR;
+    [SerializeField] SpriteRenderer bonusTypeSR;
+    [SerializeField] SpriteRenderer bonusValueSR;
 
-    [SerializeField] float handExitThreshold;
-    bool isZoomed = false;
-    bool isInHand = true;
-    bool canUnzoom = false;
+    [SerializeField] List<Sprite> backgroundSpriteList;
+    [SerializeField] List<Sprite> typeSpriteList;
+    [SerializeField] List<Sprite> bonusValueSpriteList;
+ 
+    //[SerializeField] float handExitThreshold;
+    //bool isZoomed = false;
+    //bool isInHand = true;
+    //bool canUnzoom = false;
     
 
     //"constructor"
@@ -36,20 +43,20 @@ public class Card : MonoBehaviour
         this.cardBonus = cardBonus;
         // update child object sprites to reflect bonuses
 
-        // temp code to set colors for suits
-        switch (corp)
+        corpSR.sprite = s;
+        sr.sprite = backgroundSpriteList[corp];
+        if (cardBonus != null)
         {
-            case 0:
-                sr.color = Color.green;
-                break;
-
-            case 1:
-                sr.color = Color.blue;
-                break;
-
-            case 2:
-                sr.color = Color.red;
-                break;
+            bonusTypeSR.sprite = typeSpriteList[cardBonus.bonusTargetType];
+            
+            if (cardBonus.isMultiplier)
+            {
+                bonusValueSR.sprite = bonusValueSpriteList[0];
+            }
+            else
+            {
+                bonusValueSR.sprite = bonusValueSpriteList[1];
+            }
         }
         
 
@@ -73,10 +80,10 @@ public class Card : MonoBehaviour
             //update position
             transform.position = mousePos;
 
-            if (transform.position.y >= handExitThreshold)
-            {
-                isInHand = false;
-            }
+            //if (transform.position.y >= handExitThreshold)
+            //{
+            //    isInHand = false;
+            //}
         }
     }
 

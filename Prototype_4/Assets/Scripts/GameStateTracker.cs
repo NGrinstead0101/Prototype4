@@ -19,6 +19,7 @@ public class GameStateTracker : MonoBehaviour
     public GameObject currentPart;
     public MoneyTracker mt;
     public MoneyFeedback moneyFeedback;
+    public GameObject speechBubble;
     // variable referencing PA message (probably other class?)
 
     public static State revealingRobots;
