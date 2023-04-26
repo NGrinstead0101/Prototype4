@@ -28,6 +28,19 @@ public class HandTracker : MonoBehaviour
             previousCard = cardsInHand[0];
             cardsInHand[0].transform.position = leftHandBound;
 
+            cardsInHand[0].GetComponent<SpriteRenderer>().sortingOrder = 3;
+            foreach (Transform child in cardsInHand[0].transform)
+            {
+                child.GetComponent<SpriteRenderer>().sortingOrder = 4;
+
+                if (child.childCount != 0)
+                {
+                    child.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 5;
+                }
+            }
+
+            int previousLayer = 6;
+
             for (int i = 1; i < cardsInHand.Count; ++i)
             {
                 float newXPos = previousCard.transform.position.x + spacing;
@@ -40,6 +53,21 @@ public class HandTracker : MonoBehaviour
                     cardsInHand[i].transform.position = new Vector2(newXPos, previousCard.transform.position.y);
                 }
                 previousCard = cardsInHand[i];
+
+                cardsInHand[i].GetComponent<SpriteRenderer>().sortingOrder = previousLayer;
+                previousLayer++;
+
+                foreach (Transform child in cardsInHand[i].transform)
+                {
+                    child.GetComponent<SpriteRenderer>().sortingOrder = previousLayer;
+
+                    if (child.childCount != 0)
+                    {
+                        child.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = previousLayer + 1;
+                    }
+                }
+
+                previousLayer += 2;
             }
         }
     }
