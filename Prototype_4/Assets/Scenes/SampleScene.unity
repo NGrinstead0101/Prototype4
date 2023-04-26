@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1165271110}
-  price: 30
+  price: 40
   corp: 2
   type: 0
 --- !u!114 &155974580
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1491597795}
-  price: 30
+  price: 40
   corp: 2
   type: 3
 --- !u!114 &247704359
@@ -1396,7 +1396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 61, y: 11.9999695}
+  m_AnchoredPosition: {x: 61, y: 12.0000305}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &405358518
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1443233705}
-  price: 30
+  price: 40
   corp: 0
   type: 0
 --- !u!114 &565203268
@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 347430111}
-  price: 30
+  price: 40
   corp: 1
   type: 2
 --- !u!114 &620013165
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 191023304}
-  price: 20
+  price: 30
   corp: 1
   type: -1
 --- !u!114 &927807392
@@ -4243,7 +4243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 679454879}
-  price: 30
+  price: 40
   corp: 2
   type: 1
 --- !u!114 &1006021696
@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 2134533119}
-  price: 20
+  price: 30
   corp: 0
   type: -1
 --- !u!1 &1246952562
@@ -5085,7 +5085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1268040862}
-  price: 30
+  price: 40
   corp: 1
   type: 0
 --- !u!114 &1246952565
@@ -5578,7 +5578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1640228834}
-  price: 30
+  price: 40
   corp: 2
   type: 2
 --- !u!114 &1328572526
@@ -5729,7 +5729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1435132659}
-  price: 30
+  price: 40
   corp: 0
   type: 2
 --- !u!114 &1349838531
@@ -5880,7 +5880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 183357852}
-  price: 30
+  price: 40
   corp: 0
   type: 1
 --- !u!114 &1352565426
@@ -6031,7 +6031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1545965895}
-  price: 20
+  price: 30
   corp: 2
   type: -1
 --- !u!114 &1388075451
@@ -7076,7 +7076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 436130368}
-  price: 40
+  price: 50
   corp: 3
   type: -1
 --- !u!114 &1542370928
@@ -7927,7 +7927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 850048301}
-  price: 30
+  price: 40
   corp: 1
   type: 3
 --- !u!114 &1693075135
@@ -8213,7 +8213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 774956812}
-  price: 30
+  price: 40
   corp: 0
   type: 3
 --- !u!114 &1748316128
@@ -8652,9 +8652,8 @@ MonoBehaviour:
   - "Can you make me better for the environment? I don\u2019t want to hurt anyone! "
   - "I\u2019d like an upgrade, please. I want to be more eco-friendly. "
   - 'I was only made five months ago and this thing broke already! Can you help me? '
-  - "These newer robots think they\u2019re all that, but back in my day, a robot
-    could go on runnin\u2019 just fine for 12 years\u2026 (You\u2019re not listening
-    to this guy\u2019s rambling.) "
+  - "These newer robots think they\u2019re all that, a robot used to go on runnin\u2019
+    just fine for 12 years\u2026"
   - "If this stupid part breaks one more time, I\u2019m gonna start a protest. Seriously. "
   - "Can you fix it quickly? I\u2019m going to be late for work! "
   - "Hey, what\u2019s up? Doing good?  Make sure you don't get caught, okay? "
@@ -8741,7 +8740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceText: {fileID: 1125145652}
-  price: 30
+  price: 40
   corp: 1
   type: 1
 --- !u!114 &1979264333
@@ -8895,7 +8894,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4a0d3acf3b46f6c448900238ba0195d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9163,6 +9162,7 @@ MonoBehaviour:
   mt: {fileID: 405358520}
   moneyFeedback: {fileID: 880378298}
   speechBubble: {fileID: 2047625635}
+  handTracker: {fileID: 1278076211}
 --- !u!4 &2139888132
 Transform:
   m_ObjectHideFlags: 0

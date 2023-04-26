@@ -32,6 +32,21 @@ public class RobotGenerator : MonoBehaviour
     }
 
     /// <summary>
+    /// Called to increase target robot count and update corporation mininum and maximum
+    /// </summary>
+    public void UpdateTargetCount()
+    {
+        ++targetRobotCount;
+
+        while (corpCountMax * 3 < targetRobotCount)
+        {
+            corpCountMax++;
+        }
+
+        corpCountMin = targetRobotCount / 5;
+    }
+
+    /// <summary>
     /// Generates a number of robots before gicing all of them to GameStateManager
     /// </summary>
     public void GenerateRobots()

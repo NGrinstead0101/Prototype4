@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ad20b763deaa5a04db4b212593e8c31c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07b4d8ef5d206f142aff432806185661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde59ecd1d44164e9cecde2119d18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleeves: 2
-  sleeveCorp: 0
+  sleeves: 3
+  sleeveCorp: 2
   sleeve: {fileID: 7742993586581981892, guid: 57accec1aa64a214db3b92092a4ec0ac, type: 3}
   sleeveList: []
   vectorList: []
