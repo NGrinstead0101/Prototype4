@@ -20,7 +20,7 @@ public class GameStateTracker : MonoBehaviour
     public MoneyTracker mt;
     public MoneyFeedback moneyFeedback;
     public GameObject speechBubble;
-    // variable referencing PA message (probably other class?)
+    public HandTracker handTracker;
 
     public static State revealingRobots;
     public static State repairingRobot;
@@ -33,6 +33,8 @@ public class GameStateTracker : MonoBehaviour
         revealingRobots = new RevealingRobots(this);
         repairingRobot = new RepairingRobot(this);
         buyingCards = new BuyingCards(this);
+
+        BuyingCards.dayCount = 0;
 
         robotGenerator.GenerateRobots();
 
