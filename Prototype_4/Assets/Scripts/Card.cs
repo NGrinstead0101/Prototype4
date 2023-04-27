@@ -14,7 +14,6 @@ public class Card : MonoBehaviour
     //mouse position
     Vector2 mousePos;
     public bool canMove = true;
-
     //card bonus
     public CardBonus cardBonus;
 
@@ -69,10 +68,10 @@ public class Card : MonoBehaviour
     //getter and setter for part
     public int Corp { get => corp; set => corp = value; }
 
-
-    private void OnMouseDown()              
+    
+    private void OnMouseEnter()
     {
-       canMove = true;        
+        canMove = true;
     }
 
 
@@ -128,35 +127,22 @@ public class Card : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    /*
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if coliding with sleeve and filled is false
         if (collision.tag.Contains("Sleeve") && !collision.GetComponent<Sleeve>().filled)
         {
-           canMove = false;
+            canMove = false;
            //card position becomes sleeve position
-           //transform.position = collision.transform.position;
+           transform.position = collision.transform.position;
         }
     }
-    */
     
 
     private void OnDestroy()
     {
         handTracker.RemoveCard(gameObject);
-    }
-
-    public void setPos(GameObject go)
-    {
-        canMove = false;
-        transform.position = go.transform.position;       
-        Invoke("changeMove", 0.5f);
-    }
-
-    public void changeMove() 
-    {
-        canMove = true;
     }
 
 }
