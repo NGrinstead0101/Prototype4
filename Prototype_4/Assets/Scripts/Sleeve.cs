@@ -44,7 +44,8 @@ public class Sleeve : MonoBehaviour
         //if collision is card
         if (collision.tag.Contains("Card") && filled == false)
         {
-            Invoke("SetFilled", 0.1f);
+            filled = true;
+            collision.GetComponent<Card>().setPos(gameObject);
             currentCard = collision.gameObject;
             Debug.Log("Filled: " + filled);
             cardCorp = collision.GetComponent<Card>().Corp;

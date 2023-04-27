@@ -127,7 +127,7 @@ public class Card : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if coliding with sleeve and filled is false
@@ -137,6 +137,19 @@ public class Card : MonoBehaviour
            //card position becomes sleeve position
            transform.position = collision.transform.position;
         }
+    }
+    */
+    public void setPos(GameObject go)
+    {
+        canMove = false;
+        transform.position = go.transform.position;
+        Invoke("setMove", 0.5f);
+
+    }
+
+    public void setMove()
+    {
+        canMove = true;
     }
     
 
