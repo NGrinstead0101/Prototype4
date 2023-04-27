@@ -55,11 +55,8 @@ public class Sleeve : MonoBehaviour
             Debug.Log("Sleeve's corp is: " + sleeveCorp);
             Debug.Log("Sleeve's type is: " + sleeveType);
             if (checkCorp()) Debug.Log("Corp match");
-            if (checkType()) Debug.Log("Type match");
-                 
+            if (checkType()) Debug.Log("Type match");                 
         }
-            
-       
     }
 
     /*
