@@ -71,7 +71,8 @@ public class Card : MonoBehaviour
     
     private void OnMouseEnter()
     {
-        canMove = true;
+        //canMove = true;
+        Invoke("setMove", 0.2f);
     }
 
 
