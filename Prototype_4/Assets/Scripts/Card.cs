@@ -144,7 +144,7 @@ public class Card : MonoBehaviour
     {
         canMove = false;
         transform.position = go.transform.position;
-        Invoke("setMove", 1);
+        Invoke("setMove", 1.5f);
 
     }
 
